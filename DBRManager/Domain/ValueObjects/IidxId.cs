@@ -2,9 +2,17 @@
 
 namespace Domain.ValueObjects
 {
+    /// <summary>
+    /// IIDX ID
+    /// </summary>
     internal partial record IidxId
     {
         public string Value { get; }
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="value">設定値</param>
+        /// <exception cref="ArgumentException">空白、数値8桁以外の場合</exception>
         public IidxId(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
