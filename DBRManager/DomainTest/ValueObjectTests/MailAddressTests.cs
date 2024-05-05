@@ -87,5 +87,23 @@ namespace DomainTest.ValueObjectTests
         //    var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
         //    Assert.Contains("MailAddress の形式が誤っています。", exception.Message);
         //}
+
+        //@TODO:ダブルクォートに対応
+        //[Theory]
+        //[InlineData("Abc@example.com")]
+        //[InlineData("test@gmail.com")]
+        //[InlineData("Abc.123@example.com")]
+        //[InlineData("user+mailbox/department=shipping@example.com")]
+        //[InlineData("!#$%&'*+-/=?^_`.{|}~@example.com")]
+        //[InlineData("\"Abc@def\"@example.com")]
+        //[InlineData("\"Fred\\ Bloggs\"@example.com")]
+        //[InlineData("\"Joe.\\\\Blow\"@example.com")]
+
+        //public void 正しいパターンの場合はエラーが発生しない(string value)
+        //{
+        //    var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
+        //    Assert.Null(exception);
+        //}
+        //@TODO:Lengthチェックを追加
     }
 }
