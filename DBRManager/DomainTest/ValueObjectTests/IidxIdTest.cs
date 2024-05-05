@@ -2,7 +2,7 @@ using Domain.ValueObjects;
 using Xunit;
 using Assert = Xunit.Assert;
 
-namespace DomainTest
+namespace DomainTest.ValueObjectTests
 {
     public class IidxIdTests
     {
