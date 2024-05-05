@@ -69,5 +69,14 @@ namespace DomainTest
         {
             Assert.NotEqual(new IidxId(value), new IidxId(trueValue));
         }
+
+        [Theory]
+        [InlineData("‚P‚Q‚R‚S-‚T‚U‚V‚W", "1234-5678")]
+        [InlineData("‚P‚Q‚R‚S‚T‚U‚V‚W", "1234-5678")]
+        public void ‘SŠp”’l‚ª”¼Šp”’l‚É•ÏŠ·‚³‚ê‚é(string value, string trueValue)
+        {
+            var obj = new IidxId(value);
+            Assert.Equal(obj.Value, trueValue);
+        }
     }
 }

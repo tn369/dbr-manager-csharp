@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using Domain.Modules;
+using System.Text.RegularExpressions;
 
 namespace Domain.ValueObjects
 {
@@ -25,7 +26,7 @@ namespace Domain.ValueObjects
                 throw new ArgumentException($"IidxId の形式が誤っています。", nameof(value));
             }
 
-            var formatedValue = regex.Replace(value, "$1-$2");
+            var formatedValue = regex.Replace(value, "$1-$2").ConvertFullToHalfNumbers();
             Value = formatedValue;
         }
 
