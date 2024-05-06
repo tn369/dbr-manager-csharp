@@ -6,42 +6,42 @@ namespace Domain.ValueObjects
     {
         public MailAddress(string value)
         {
+
+            Validate(value);
+
+            Value = value;
+        }
+
+        private static void Validate(string value)
+        {
             if (string.IsNullOrWhiteSpace(value))
             {
                 throw new ArgumentException($"MailAddress を null または空白にすることはできません。", nameof(value));
             }
 
-            if (!isValid(value))
+            var regex = truePattern();
+            if (!regex.IsMatch(value))
             {
                 throw new ArgumentException($"MailAddress の形式が誤っています。", nameof(value));
             }
-         
 
-            Value = value;
-        }
-
-        bool isValid(string value)
-        {
-            var regex = truePattern();
-
-            if (!regex.IsMatch(value))
+            if (value.Length > 254)
             {
-                return false;
+                throw new ArgumentException("MailAddress が長すぎます。", nameof(value));
             }
 
             foreach (var item in value.Split("@"))
             {
                 if (item.StartsWith('.'))
                 {
-                    return false;
+                    throw new ArgumentException($"MailAddress の形式が誤っています。", nameof(value));
                 }
 
                 if (item.EndsWith('.'))
                 {
-                    return false;
+                    throw new ArgumentException($"MailAddress の形式が誤っています。", nameof(value));
                 }
             }
-            return true;
         }
         public string Value { get; }
 

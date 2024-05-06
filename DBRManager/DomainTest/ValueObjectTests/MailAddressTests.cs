@@ -97,13 +97,27 @@ namespace DomainTest.ValueObjectTests
         //[InlineData("!#$%&'*+-/=?^_`.{|}~@example.com")]
         //[InlineData("\"Abc@def\"@example.com")]
         //[InlineData("\"Fred\\ Bloggs\"@example.com")]
-        //[InlineData("\"Joe.\\\\Blow\"@example.com")]
+        //[InlineData("\"Joe.\\\\Blow\\"\"@example.com")]
 
         //public void 正しいパターンの場合はエラーが発生しない(string value)
         //{
         //    var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
         //    Assert.Null(exception);
         //}
-        //@TODO:Lengthチェックを追加
+        [Fact]
+        public void 文字数が２５４文字を超える場合エラー()
+        {
+            var value = new string('a', 253) + "@a";
+            var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
+            Assert.Contains("MailAddress が長すぎます。", exception.Message);
+        }
+
+        [Fact]
+        public void 文字数が２５４文字以内の場合正常()
+        {
+            var value = new string('a', 252) + "@a";
+            var exception = Record.Exception(() => new MailAddress(value));
+            Assert.Null(exception);
+        }
     }
 }
