@@ -4,15 +4,15 @@ using Assert = Xunit.Assert;
 
 namespace DomainTest.ValueObjectTests
 {
-    public class MailAddressTests
+    public class EmailTests
     {
         [Fact]
         public void NULLの場合エラー()
         {
             string value = null;
 
-            var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
-            Assert.Contains("MailAddress を null または空白にすることはできません。", exception.Message);
+            var exception = Assert.Throws<ArgumentException>(() => new Email(value));
+            Assert.Contains("Email を null または空白にすることはできません。", exception.Message);
         }
 
         [Fact]
@@ -20,8 +20,8 @@ namespace DomainTest.ValueObjectTests
         {
             string value = "   ";
 
-            var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
-            Assert.Contains("MailAddress を null または空白にすることはできません。", exception.Message);
+            var exception = Assert.Throws<ArgumentException>(() => new Email(value));
+            Assert.Contains("Email を null または空白にすることはできません。", exception.Message);
         }
 
         [Theory]
@@ -29,8 +29,8 @@ namespace DomainTest.ValueObjectTests
         [InlineData ("^-0987654321gmail.com")]
         public void アットマークがない場合エラー(string value)
         {
-            var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
-            Assert.Contains("MailAddress の形式が誤っています。", exception.Message);
+            var exception = Assert.Throws<ArgumentException>(() => new Email(value));
+            Assert.Contains("Email の形式が誤っています。", exception.Message);
         }
 
         [Theory]
@@ -41,8 +41,8 @@ namespace DomainTest.ValueObjectTests
         [InlineData("e@")]
         public void アットマークの前後に文字がない場合エラー(string value)
         {
-            var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
-            Assert.Contains("MailAddress の形式が誤っています。", exception.Message);
+            var exception = Assert.Throws<ArgumentException>(() => new Email(value));
+            Assert.Contains("Email の形式が誤っています。", exception.Message);
         }
 
         [Theory]
@@ -51,8 +51,8 @@ namespace DomainTest.ValueObjectTests
         [InlineData("ｔｅｓｔ@gmail.com")]
         public void 全角文字が含まれる場合エラー(string value)
         {
-            var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
-            Assert.Contains("MailAddress の形式が誤っています。", exception.Message);
+            var exception = Assert.Throws<ArgumentException>(() => new Email(value));
+            Assert.Contains("Email の形式が誤っています。", exception.Message);
         }
 
         [Theory]
@@ -61,8 +61,8 @@ namespace DomainTest.ValueObjectTests
         [InlineData("test@@@@gmail.com")]
         public void アットマークが複数ある場合エラー(string value)
         {
-            var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
-            Assert.Contains("MailAddress の形式が誤っています。", exception.Message);
+            var exception = Assert.Throws<ArgumentException>(() => new Email(value));
+            Assert.Contains("Email の形式が誤っています。", exception.Message);
         }
 
 
@@ -73,8 +73,8 @@ namespace DomainTest.ValueObjectTests
         [InlineData("test@.gmail.com")]
         public void 先頭末尾にドットがある場合エラー(string value)
         {
-            var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
-            Assert.Contains("MailAddress の形式が誤っています。", exception.Message);
+            var exception = Assert.Throws<ArgumentException>(() => new Email(value));
+            Assert.Contains("Email の形式が誤っています。", exception.Message);
         }
 
         // RFC規定上はNGだが携帯キャリアメールの一部で許容されるケースがあるため除外
@@ -84,8 +84,8 @@ namespace DomainTest.ValueObjectTests
         //[InlineData("test..test@gmail.com")]
         //public void ドットが二連続している場合エラー(string value)
         //{
-        //    var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
-        //    Assert.Contains("MailAddress の形式が誤っています。", exception.Message);
+        //    var exception = Assert.Throws<ArgumentException>(() => new Email(value));
+        //    Assert.Contains("Email の形式が誤っています。", exception.Message);
         //}
 
         //@TODO:ダブルクォートに対応
@@ -101,22 +101,22 @@ namespace DomainTest.ValueObjectTests
 
         //public void 正しいパターンの場合はエラーが発生しない(string value)
         //{
-        //    var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
+        //    var exception = Assert.Throws<ArgumentException>(() => new Email(value));
         //    Assert.Null(exception);
         //}
         [Fact]
         public void 文字数が２５４文字を超える場合エラー()
         {
             var value = new string('a', 253) + "@a";
-            var exception = Assert.Throws<ArgumentException>(() => new MailAddress(value));
-            Assert.Contains("MailAddress が長すぎます。", exception.Message);
+            var exception = Assert.Throws<ArgumentException>(() => new Email(value));
+            Assert.Contains("Email が長すぎます。", exception.Message);
         }
 
         [Fact]
         public void 文字数が２５４文字以内の場合正常()
         {
             var value = new string('a', 252) + "@a";
-            var exception = Record.Exception(() => new MailAddress(value));
+            var exception = Record.Exception(() => new Email(value));
             Assert.Null(exception);
         }
     }

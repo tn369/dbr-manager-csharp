@@ -2,9 +2,9 @@
 
 namespace Domain.ValueObjects
 {
-    internal sealed partial record MailAddress
+    public sealed partial record Email
     {
-        public MailAddress(string value)
+        public Email(string value)
         {
 
             Validate(value);
@@ -16,30 +16,30 @@ namespace Domain.ValueObjects
         {
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentException($"MailAddress を null または空白にすることはできません。", nameof(value));
+                throw new ArgumentException($"Email を null または空白にすることはできません。", nameof(value));
             }
 
             var regex = truePattern();
             if (!regex.IsMatch(value))
             {
-                throw new ArgumentException($"MailAddress の形式が誤っています。", nameof(value));
+                throw new ArgumentException($"Email の形式が誤っています。", nameof(value));
             }
 
             if (value.Length > 254)
             {
-                throw new ArgumentException("MailAddress が長すぎます。", nameof(value));
+                throw new ArgumentException("Email が長すぎます。", nameof(value));
             }
 
             foreach (var item in value.Split("@"))
             {
                 if (item.StartsWith('.'))
                 {
-                    throw new ArgumentException($"MailAddress の形式が誤っています。", nameof(value));
+                    throw new ArgumentException($"Email の形式が誤っています。", nameof(value));
                 }
 
                 if (item.EndsWith('.'))
                 {
-                    throw new ArgumentException($"MailAddress の形式が誤っています。", nameof(value));
+                    throw new ArgumentException($"Email の形式が誤っています。", nameof(value));
                 }
             }
         }

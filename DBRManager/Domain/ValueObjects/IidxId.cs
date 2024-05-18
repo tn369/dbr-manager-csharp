@@ -6,7 +6,7 @@ namespace Domain.ValueObjects
     /// <summary>
     /// IIDX ID
     /// </summary>
-    internal sealed partial record IidxId
+    public sealed partial record IidxId
     {
         public string Value { get; }
         /// <summary>
