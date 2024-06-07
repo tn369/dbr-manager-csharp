@@ -6,7 +6,8 @@
 
         public Level(int value)
         {
-            if (value < 0) throw new ArgumentException("Level cannot be negative.");
+            if (value < 1) throw new ArgumentException("Level must be at least 1.");
+            if (value > 12) throw new ArgumentException("Level must be at most 12.");
             Value = value;
         }
     }
