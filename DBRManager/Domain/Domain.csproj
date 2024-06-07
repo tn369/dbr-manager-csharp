@@ -8,10 +8,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="Entities\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
 			<_Parameter1>DomainTest</_Parameter1>
 		</AssemblyAttribute>
