@@ -1,14 +1,10 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Domain.ValueObjects
+﻿namespace Domain.ValueObjects
 {
-    public sealed partial record Email
+    public sealed record Email
     {
         public Email(string value)
         {
-
             Validate(value);
-
             Value = value;
         }
 
@@ -16,36 +12,34 @@ namespace Domain.ValueObjects
         {
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentException($"Email を null または空白にすることはできません。", nameof(value));
-            }
-
-            var regex = truePattern();
-            if (!regex.IsMatch(value))
-            {
-                throw new ArgumentException($"Email の形式が誤っています。", nameof(value));
+                throw new ArgumentException("Email cannot be null or whitespace.", nameof(value));
             }
 
             if (value.Length > 254)
             {
-                throw new ArgumentException("Email が長すぎます。", nameof(value));
+                throw new ArgumentException("Email is too long.", nameof(value));
             }
 
-            foreach (var item in value.Split("@"))
+            if (!value.Contains('@'))
             {
-                if (item.StartsWith('.'))
-                {
-                    throw new ArgumentException($"Email の形式が誤っています。", nameof(value));
-                }
+                throw new ArgumentException("Email must contain '@'.", nameof(value));
+            }
 
-                if (item.EndsWith('.'))
-                {
-                    throw new ArgumentException($"Email の形式が誤っています。", nameof(value));
-                }
+            if (value.StartsWith('.') || value.EndsWith('.'))
+            {
+                throw new ArgumentException("Email cannot start or end with '.'.", nameof(value));
+            }
+
+            var atIndex = value.IndexOf('@');
+            var localPart = value.Substring(0, atIndex);
+            var domainPart = value.Substring(atIndex + 1);
+
+            if (string.IsNullOrWhiteSpace(localPart) || string.IsNullOrWhiteSpace(domainPart))
+            {
+                throw new ArgumentException("Email must have text before and after '@'.", nameof(value));
             }
         }
-        public string Value { get; }
 
-        [GeneratedRegex(@"^[a-zA-Z0-9!#$%&'*+\-/=?^_`{|}~.]+@[a-zA-Z0-9!#$%&'*+\-/=?^_`{|}~.]+$")]
-        private static partial Regex truePattern();
+        public string Value { get; }
     }
 }
