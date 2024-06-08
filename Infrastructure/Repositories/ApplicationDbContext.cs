@@ -9,7 +9,6 @@ namespace Infrastructure.Repositories
         public DbSet<Chart> Charts { get; set; }
         public DbSet<Difficulty> Difficulties { get; set; }
         public DbSet<Music> Musics { get; set; }
-        public DbSet<Option> Options { get; set; }
         public DbSet<Player> Players { get; set; }
         public DbSet<PlayerScore> PlayerScores { get; set; }
         public DbSet<Rival> Rivals { get; set; }

@@ -5,7 +5,6 @@
         IChartRepository Charts { get; }
         IDifficultyRepository Difficulties { get; }
         IMusicRepository Musics { get; }
-        IOptionRepository Options { get; }
         IPlayerRepository Players { get; }
         IPlayerScoreRepository PlayerScores { get; }
         IRivalRepository Rivals { get; }

@@ -2,22 +2,37 @@
 
 namespace Domain.Entities
 {
-    public class PlayerScore(PlayerId playerId, MusicId musicId, DifficultyId difficultyId, PlayAt playAt, OptionId? optionIdLeft, OptionId? optionIdRight, Legacy legacy, AutoScratch autoScratch, Judge pikaGreat, Judge great, Judge bp, ComboBreak comboBreak, ValueObjects.ClearLampStatus clearLampStatus, Memo memo)
+    public class PlayerScore
     {
-        public PlayerId PlayerId { get; private set; } = playerId;
-        public MusicId MusicId { get; private set; } = musicId;
-        public DifficultyId DifficultyId { get; private set; } = difficultyId;
-        public PlayAt PlayAt { get; private set; } = playAt;
-        public OptionId? OptionIdLeft { get; private set; } = optionIdLeft;
-        public OptionId? OptionIdRight { get; private set; } = optionIdRight;
-        public Legacy Legacy { get; private set; } = legacy;
-        public AutoScratch AutoScratch { get; private set; } = autoScratch;
-        public Judge PikaGreat { get; private set; } = pikaGreat;
-        public Judge Great { get; private set; } = great;
-        public Judge Bp { get; private set; } = bp;
-        public ComboBreak ComboBreak { get; private set; } = comboBreak;
-        public ClearLampStatus ClearLampStatus { get; private set; } = clearLampStatus;
-        public Memo Memo { get; private set; } = memo;
-    }
+        public PlayerId PlayerId { get; private set; }
+        public MusicId MusicId { get; private set; }
+        public DifficultyId DifficultyId { get; private set; }
+        public PlayAt PlayAt { get; private set; }
+        public PlaySettings PlaySettings { get; private set; }
+        public Legacy Legacy { get; private set; }
+        public AutoScratch AutoScratch { get; private set; }
+        public Judge PikaGreat { get; private set; }
+        public Judge Great { get; private set; }
+        public Judge Bp { get; private set; }
+        public ComboBreak ComboBreak { get; private set; }
+        public ClearLampStatus ClearLampStatus { get; private set; }
+        public Memo Memo { get; private set; }
 
+        public PlayerScore(PlayerId playerId, MusicId musicId, DifficultyId difficultyId, PlayAt playAt, PlaySettings playSettings, Legacy legacy, AutoScratch autoScratch, Judge pikaGreat, Judge great, Judge bp, ComboBreak comboBreak, ClearLampStatus clearLampStatus, Memo memo)
+        {
+            PlayerId = playerId;
+            MusicId = musicId;
+            DifficultyId = difficultyId;
+            PlayAt = playAt;
+            PlaySettings = playSettings;
+            Legacy = legacy;
+            AutoScratch = autoScratch;
+            PikaGreat = pikaGreat;
+            Great = great;
+            Bp = bp;
+            ComboBreak = comboBreak;
+            ClearLampStatus = clearLampStatus;
+            Memo = memo;
+        }
+    }
 }
