@@ -1,4 +1,4 @@
-using Domain.ValueObjects;
+ï»¿using Domain.ValueObjects;
 using Xunit;
 using Assert = Xunit.Assert;
 
@@ -7,27 +7,27 @@ namespace DomainTest.ValueObjectTests
     public class IidxIdTests
     {
         [Fact]
-        public void NULL‚Ìê‡ƒGƒ‰[()
+        public void NULLã®å ´åˆã‚¨ãƒ©ãƒ¼()
         {
             string value = null;
 
             var exception = Assert.Throws<ArgumentException>(() => new IidxId(value));
-            Assert.Contains("IidxId ‚ğ null ‚Ü‚½‚Í‹ó”’‚É‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB", exception.Message);
+            Assert.Contains("IidxId ã‚’ null ã¾ãŸã¯ç©ºç™½ã«ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚", exception.Message);
         }
 
         [Fact]
-        public void ƒXƒy[ƒX‚Ìê‡ƒGƒ‰[()
+        public void ã‚¹ãƒšãƒ¼ã‚¹ã®å ´åˆã‚¨ãƒ©ãƒ¼()
         {
             string value = "   ";
 
             var exception = Assert.Throws<ArgumentException>(() => new IidxId(value));
-            Assert.Contains("IidxId ‚ğ null ‚Ü‚½‚Í‹ó”’‚É‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB", exception.Message);
+            Assert.Contains("IidxId ã‚’ null ã¾ãŸã¯ç©ºç™½ã«ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚", exception.Message);
         }
 
         [Theory]
         [InlineData("1234-5678")]
         [InlineData("12345678")]
-        public void ³‚µ‚¢Œ`®‚Ìê‡ƒGƒ‰[‚ª”­¶‚µ‚È‚¢(string value)
+        public void æ­£ã—ã„å½¢å¼ã®å ´åˆã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãªã„(string value)
         {
             var exceptionRecord = Record.Exception(() => new IidxId(value));
             Assert.Null(exceptionRecord);
@@ -37,16 +37,16 @@ namespace DomainTest.ValueObjectTests
         [InlineData("1234")]
         [InlineData("1234-56789")]
         [InlineData("abcd-5678")]
-        public void Œ…”‚Æg—p•¶š‚ªˆÙ‚È‚éê‡‚ÍƒGƒ‰[(string value)
+        public void æ¡æ•°ã¨ä½¿ç”¨æ–‡å­—ãŒç•°ãªã‚‹å ´åˆã¯ã‚¨ãƒ©ãƒ¼(string value)
         {
             var exception = Assert.Throws<ArgumentException>(() => new IidxId(value));
-            Assert.Contains("IidxId ‚ÌŒ`®‚ªŒë‚Á‚Ä‚¢‚Ü‚·B", exception.Message);
+            Assert.Contains("IidxId ã®å½¢å¼ãŒèª¤ã£ã¦ã„ã¾ã™ã€‚", exception.Message);
         }
 
         [Theory]
         [InlineData("1234-5678", "1234-5678")]
         [InlineData("12345678", "1234-5678")]
-        public void ValueƒvƒƒpƒeƒB‚ªƒnƒCƒtƒ“•t‚«‚É‚È‚é(string value, string trueValue)
+        public void Valueãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒãƒã‚¤ãƒ•ãƒ³ä»˜ãã«ãªã‚‹(string value, string trueValue)
         {
             var obj = new IidxId(value);
             Assert.Equal(obj.Value, trueValue);
@@ -56,7 +56,7 @@ namespace DomainTest.ValueObjectTests
         [InlineData("1234-5678", "12345678")]
         [InlineData("1234-5678", "1234-5678")]
         [InlineData("12345678", "12345678")]
-        public void ’l‚ª“™‰¿‚È‚ç“¯ˆêƒIƒuƒWƒFƒNƒg‚Æ”»’è‚³‚ê‚é(string value, string trueValue)
+        public void å€¤ãŒç­‰ä¾¡ãªã‚‰åŒä¸€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨åˆ¤å®šã•ã‚Œã‚‹(string value, string trueValue)
         {
             Assert.Equal(new IidxId(value), new IidxId(trueValue));
         }
@@ -65,15 +65,15 @@ namespace DomainTest.ValueObjectTests
         [InlineData("1234-5678", "12345677")]
         [InlineData("1234-5678", "1234-5677")]
         [InlineData("12345678", "12345677")]
-        public void ’l‚ªˆÙ‚È‚ê‚Î‚È‚çˆÙ‚È‚éƒIƒuƒWƒFƒNƒg‚Æ”»’è‚³‚ê‚é(string value, string trueValue)
+        public void å€¤ãŒç•°ãªã‚Œã°ãªã‚‰ç•°ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨åˆ¤å®šã•ã‚Œã‚‹(string value, string trueValue)
         {
             Assert.NotEqual(new IidxId(value), new IidxId(trueValue));
         }
 
         [Theory]
-        [InlineData("‚P‚Q‚R‚S-‚T‚U‚V‚W", "1234-5678")]
-        [InlineData("‚P‚Q‚R‚S‚T‚U‚V‚W", "1234-5678")]
-        public void ‘SŠp”’l‚ª”¼Šp”’l‚É•ÏŠ·‚³‚ê‚é(string value, string trueValue)
+        [InlineData("ï¼‘ï¼’ï¼“ï¼”-ï¼•ï¼–ï¼—ï¼˜", "1234-5678")]
+        [InlineData("ï¼‘ï¼’ï¼“ï¼”ï¼•ï¼–ï¼—ï¼˜", "1234-5678")]
+        public void å…¨è§’æ•°å€¤ãŒåŠè§’æ•°å€¤ã«å¤‰æ›ã•ã‚Œã‚‹(string value, string trueValue)
         {
             var obj = new IidxId(value);
             Assert.Equal(obj.Value, trueValue);
