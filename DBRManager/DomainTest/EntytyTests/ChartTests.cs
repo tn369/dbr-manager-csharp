@@ -14,10 +14,10 @@
             var difficultyId = new DifficultyId(1);
             var level = new Level(10);
             var bpm = new Bpm(150);
-            var notesTotal = new NotesTotal(1000);
-            var notesScratch = new NotesScratch(50);
-            var notesCharge = new NotesCharge(20);
-            var notesBackspin = new NotesBackspin(10);
+            var notesTotal = new Notes(1000);
+            var notesScratch = new Notes(50);
+            var notesCharge = new Notes(20);
+            var notesBackspin = new Notes(10);
 
             var chart = new Chart(musicId, difficultyId, level, bpm, notesTotal, notesScratch, notesCharge, notesBackspin);
 
