@@ -19,9 +19,9 @@
             var optionIdRight = new OptionId(2);
             var legacy = new Legacy(true);
             var autoScratch = new AutoScratch(false);
-            var pikaGreat = new PikaGreat(100);
-            var great = new Great(200);
-            var bp = new Bp(10);
+            var pikaGreat = new Judge(100);
+            var great = new Judge(200);
+            var bp = new Judge(10);
             var comboBreak = new ComboBreak(5);
             var clearLampId = new ClearLampId(1);
             var memo = new Memo("Test Memo");
