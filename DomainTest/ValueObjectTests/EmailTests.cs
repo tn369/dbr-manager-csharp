@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Domain.ValueObjects;
 using Xunit;
-using Domain.ValueObjects;
 
 namespace Domain.Tests
 {

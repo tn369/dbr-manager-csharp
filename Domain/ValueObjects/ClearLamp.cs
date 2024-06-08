@@ -2,11 +2,11 @@
 
 namespace Domain.ValueObjects
 {
-    public record ClearLampStatus 
+    public record ClearLampStatus
     {
         public ClearLamp Value { get; }
 
-        public ClearLampStatus (ClearLamp value)
+        public ClearLampStatus(ClearLamp value)
         {
             Value = value;
         }

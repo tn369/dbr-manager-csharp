@@ -23,7 +23,7 @@
             var great = new Judge(200);
             var bp = new Judge(10);
             var comboBreak = new ComboBreak(5);
-            var clearLampId = new ClearLampStatus (Domain.Enums.ClearLamp.FullCombo);
+            var clearLampId = new ClearLampStatus(Domain.Enums.ClearLamp.FullCombo);
             var memo = new Memo("Test Memo");
 
             var playerScore = new PlayerScore(playerId, musicId, difficultyId, playAt, optionIdLeft, optionIdRight, legacy, autoScratch, pikaGreat, great, bp, comboBreak, clearLampId, memo);
