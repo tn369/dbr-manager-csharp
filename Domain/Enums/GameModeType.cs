@@ -4,6 +4,6 @@
     {
         Single,
         Double,
-        Battle
+        Battle,
     }
 }

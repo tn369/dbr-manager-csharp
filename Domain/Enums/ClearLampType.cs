@@ -9,6 +9,6 @@
         HardClear,
         EXHardClear,
         FullCombo,
-        Perfect
+        Perfect,
     }
 }
