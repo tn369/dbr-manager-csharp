@@ -31,8 +31,8 @@
             }
 
             var atIndex = value.IndexOf('@');
-            var localPart = value.Substring(0, atIndex);
-            var domainPart = value.Substring(atIndex + 1);
+            var localPart = value[..atIndex];
+            var domainPart = value[(atIndex + 1)..];
 
             if (string.IsNullOrWhiteSpace(localPart) || string.IsNullOrWhiteSpace(domainPart))
             {

@@ -28,14 +28,8 @@ namespace Infrastructure.Repositories
         public IRivalRepository Rivals { get; private set; }
         public IVersionRepository Versions { get; private set; }
 
-        public async Task<int> CompleteAsync()
-        {
-            return await _context.SaveChangesAsync();
-        }
+        public async Task<int> CompleteAsync() => await _context.SaveChangesAsync();
 
-        public void Dispose()
-        {
-            _context.Dispose();
-        }
+        public void Dispose() => _context.Dispose();
     }
 }

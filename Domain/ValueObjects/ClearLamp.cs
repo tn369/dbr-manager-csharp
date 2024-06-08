@@ -13,18 +13,18 @@ namespace Domain.ValueObjects
 
         public string GetDisplayName()
         {
-            switch (Value)
+            return Value switch
             {
-                case ClearLamp.Failed: return "Failed";
-                case ClearLamp.AssistClear: return "Assist Clear";
-                case ClearLamp.EasyClear: return "Easy Clear";
-                case ClearLamp.Clear: return "Clear";
-                case ClearLamp.HardClear: return "Hard Clear";
-                case ClearLamp.EXHardClear: return "EX Hard Clear";
-                case ClearLamp.FullCombo: return "Full Combo";
-                case ClearLamp.Perfect: return "Perfect";
-                default: return Value.ToString();
-            }
+                ClearLamp.Failed => "Failed",
+                ClearLamp.AssistClear => "Assist Clear",
+                ClearLamp.EasyClear => "Easy Clear",
+                ClearLamp.Clear => "Clear",
+                ClearLamp.HardClear => "Hard Clear",
+                ClearLamp.EXHardClear => "EX Hard Clear",
+                ClearLamp.FullCombo => "Full Combo",
+                ClearLamp.Perfect => "Perfect",
+                _ => Value.ToString(),
+            };
         }
     }
 }
