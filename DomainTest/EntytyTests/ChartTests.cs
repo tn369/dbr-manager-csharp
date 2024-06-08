@@ -10,7 +10,7 @@
         [Fact]
         public void Chart_CanBeCreated_WithValidParameters()
         {
-            var musicId = new MusicId("music123");
+            var musicId = new MusicId(1);
             var difficultyId = new DifficultyId(1);
             var level = new Level(10);
             var bpm = new Bpm(150);

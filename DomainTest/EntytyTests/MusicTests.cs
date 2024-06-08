@@ -11,7 +11,7 @@ namespace DomainTest.EntytyTests
         [Fact]
         public void Music_CanBeCreated_WithValidParameters()
         {
-            var musicId = new MusicId("music123");
+            var musicId = new MusicId(1);
             var versionId = new VersionId(1);
             var title = new MusicTitle("Title");
             var genre = new Genre("Genre");
