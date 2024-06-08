@@ -23,7 +23,7 @@
             var great = new Judge(200);
             var bp = new Judge(10);
             var comboBreak = new ComboBreak(5);
-            var clearLampId = new ClearLampId(1);
+            var clearLampId = new ClearLampStatus (Domain.Enums.ClearLamp.FullCombo);
             var memo = new Memo("Test Memo");
 
             var playerScore = new PlayerScore(playerId, musicId, difficultyId, playAt, optionIdLeft, optionIdRight, legacy, autoScratch, pikaGreat, great, bp, comboBreak, clearLampId, memo);
@@ -40,7 +40,7 @@
             Assert.Equal(great, playerScore.Great);
             Assert.Equal(bp, playerScore.Bp);
             Assert.Equal(comboBreak, playerScore.ComboBreak);
-            Assert.Equal(clearLampId, playerScore.ClearLampId);
+            Assert.Equal(clearLampId, playerScore.ClearLampStatus);
             Assert.Equal(memo, playerScore.Memo);
         }
     }

@@ -7,7 +7,6 @@ namespace Infrastructure.Repositories
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Chart> Charts { get; set; }
-        public DbSet<ClearLamp> ClearLamps { get; set; }
         public DbSet<Difficulty> Difficulties { get; set; }
         public DbSet<Music> Musics { get; set; }
         public DbSet<Option> Options { get; set; }

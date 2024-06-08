@@ -3,7 +3,6 @@
     public interface IUnitOfWork : IDisposable
     {
         IChartRepository Charts { get; }
-        IClearLampRepository ClearLamps { get; }
         IDifficultyRepository Difficulties { get; }
         IMusicRepository Musics { get; }
         IOptionRepository Options { get; }

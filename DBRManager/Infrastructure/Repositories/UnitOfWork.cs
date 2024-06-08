@@ -10,7 +10,6 @@ namespace Infrastructure.Repositories
         {
             _context = context;
             Charts = new ChartRepository(_context);
-            ClearLamps = new ClearLampRepository(_context);
             Difficulties = new DifficultyRepository(_context);
             Musics = new MusicRepository(_context);
             Options = new OptionRepository(_context);
@@ -21,7 +20,6 @@ namespace Infrastructure.Repositories
         }
 
         public IChartRepository Charts { get; private set; }
-        public IClearLampRepository ClearLamps { get; private set; }
         public IDifficultyRepository Difficulties { get; private set; }
         public IMusicRepository Musics { get; private set; }
         public IOptionRepository Options { get; private set; }
