@@ -4,16 +4,16 @@ using Domain.ValueObjects;
 
 namespace Infrastructure.Repositories
 {
-    public class PlayerScoreRepository : Repository<PlayerScore, (PlayerId, MusicId, DifficultyId)>, IPlayerScoreRepository
+    public class PlayerScoreRepository : Repository<PlayerScore, (PlayerId, MusicId, Difficulty, PlayAt)>, IPlayerScoreRepository
     {
         public PlayerScoreRepository(ApplicationDbContext context) : base(context) { }
 
-        public Task DeleteAsync((PlayerId, MusicId, DifficultyId, PlayAt) id)
+        public Task DeleteAsync((PlayerId, MusicId, Difficulty, PlayAt) id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<PlayerScore> GetByIdAsync((PlayerId, MusicId, DifficultyId, PlayAt) id)
+        public Task<PlayerScore> GetByIdAsync((PlayerId, MusicId, Difficulty, PlayAt) id)
         {
             throw new NotImplementedException();
         }
