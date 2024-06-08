@@ -6,6 +6,7 @@
         Random,
         RRandom,
         SRandom,
+        HRandom,
         Mirror,
     }
 }

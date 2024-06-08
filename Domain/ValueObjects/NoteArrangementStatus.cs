@@ -19,6 +19,7 @@ namespace Domain.ValueObjects
                 NoteArrangement.Random => "Random",
                 NoteArrangement.RRandom => "R-Random",
                 NoteArrangement.SRandom => "S-Random",
+                NoteArrangement.HRandom => "H-Random",
                 NoteArrangement.Mirror => "Mirror",
                 _ => throw new ArgumentOutOfRangeException()
             };
