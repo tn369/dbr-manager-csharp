@@ -1,6 +1,6 @@
-﻿using Xunit;
-using Domain.Enums;
+﻿using Domain.Enums;
 using Domain.ValueObjects;
+using Xunit;
 
 namespace DomainTest.ValueObjectTests
 {

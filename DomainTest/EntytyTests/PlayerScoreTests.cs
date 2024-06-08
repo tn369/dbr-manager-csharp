@@ -1,7 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Enums;
 using Domain.ValueObjects;
-using System;
 using Xunit;
 
 namespace DomainTest.EntytyTests
