@@ -13,10 +13,10 @@ namespace Domain.Entities
         public Judge Great { get; private set; }
         public Judge Bp { get; private set; }
         public Judge ComboBreak { get; private set; }
-        public ClearLampStatus ClearLampStatus { get; private set; }
+        public ClearLamp ClearLamp { get; private set; }
         public Memo Memo { get; private set; }
 
-        public PlayerScore(PlayerId playerId, MusicId musicId, Difficulty difficulty, PlayAt playAt, PlaySettings playSettings, Judge pikaGreat, Judge great, Judge bp, Judge comboBreak, ClearLampStatus clearLampStatus, Memo memo)
+        public PlayerScore(PlayerId playerId, MusicId musicId, Difficulty difficulty, PlayAt playAt, PlaySettings playSettings, Judge pikaGreat, Judge great, Judge bp, Judge comboBreak, ClearLamp clearLamp, Memo memo)
         {
             PlayerId = playerId;
             MusicId = musicId;
@@ -27,7 +27,7 @@ namespace Domain.Entities
             Great = great;
             Bp = bp;
             ComboBreak = comboBreak;
-            ClearLampStatus = clearLampStatus;
+            ClearLamp = clearLamp;
             Memo = memo;
         }
     }

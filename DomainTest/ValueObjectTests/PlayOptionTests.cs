@@ -8,16 +8,16 @@ namespace DomainTest.ValueObjectTests
     public class PlayOptionTests
     {
         [Theory]
-        [InlineData(GameMode.Battle, true, true, true, false)]
-        [InlineData(GameMode.Single, true, true, true, false)]
-        [InlineData(GameMode.Double, true, true, true, true)]
-        public void Create_ShouldReturnCorrectPlayOption(GameMode mode, bool autoScratch, bool legacyNote, bool flip, bool expectedFlip)
+        [InlineData(GameModeType.Battle, true, true, true, false)]
+        [InlineData(GameModeType.Single, true, true, true, false)]
+        [InlineData(GameModeType.Double, true, true, true, true)]
+        public void Create_ShouldReturnCorrectPlayOption(GameModeType mode, bool autoScratch, bool legacyNote, bool flip, bool expectedFlip)
         {
             // Arrange
-            var gameModeStatus = new GameModeStatus(mode);
+            var gameMode = new GameMode(mode);
 
             // Act
-            var playOption = PlayOption.Create(gameModeStatus, autoScratch, legacyNote, flip);
+            var playOption = PlayOption.Create(gameMode, autoScratch, legacyNote, flip);
 
             // Assert
             Assert.Equal(autoScratch, playOption.AutoScratch);

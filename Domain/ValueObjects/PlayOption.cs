@@ -8,14 +8,14 @@ namespace Domain.ValueObjects
         public PlayOption WithLegacyNote(bool legacyNote) => this with { LegacyNote = legacyNote };
         public PlayOption WithFlip(bool flip) => this with { Flip = flip };
 
-        public static PlayOption Create(GameModeStatus mode, bool autoScratch, bool legacyNote, bool flip)
+        public static PlayOption Create(GameMode mode, bool autoScratch, bool legacyNote, bool flip)
         {
-            if (mode.Mode == GameMode.Battle)
+            if (mode.Mode == GameModeType.Battle)
             {
                 return new PlayOption(autoScratch, legacyNote, Flip: false);
             }
 
-            if (mode.Mode == GameMode.Single)
+            if (mode.Mode == GameModeType.Single)
             {
                 return new PlayOption(autoScratch, legacyNote, Flip: false);
             }

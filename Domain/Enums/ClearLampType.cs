@@ -1,6 +1,6 @@
 ﻿namespace Domain.Enums
 {
-    public enum ClearLamp
+    public enum ClearLampType
     {
         Failed,
         AssistClear,

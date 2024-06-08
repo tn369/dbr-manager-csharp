@@ -1,6 +1,6 @@
 ﻿namespace Domain.Enums
 {
-    public enum NoteArrangement
+    public enum RandomOptionType
     {
         Normal,
         Random,

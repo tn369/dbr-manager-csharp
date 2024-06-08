@@ -2,13 +2,13 @@
 
 namespace Domain.ValueObjects
 {
-    public sealed record GameModeStatus(GameMode Mode)
+    public sealed record GameMode(GameModeType Mode)
     {
         public string GetName() => Mode switch
         {
-            GameMode.Single => "Single",
-            GameMode.Double => "Double",
-            GameMode.Battle => "Battle",
+            GameModeType.Single => "Single",
+            GameModeType.Double => "Double",
+            GameModeType.Battle => "Battle",
             _ => throw new ArgumentOutOfRangeException(nameof(Mode), "Unknown Game Mode")
         };
     }

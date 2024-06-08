@@ -11,9 +11,9 @@
         public void CreatePlaySettings_WithSingleMode_ShouldSucceed()
         {
             // Arrange
-            var gameMode = new GameModeStatus(GameMode.Single);
+            var gameMode = new GameMode(GameModeType.Single);
             var commonOption = new PlayOption(AutoScratch: true, LegacyNote: true, Flip: false);
-            var playerOption = new SideOption(new NoteArrangementStatus(NoteArrangement.Normal));
+            var playerOption = new SideOption(new RandomOption(RandomOptionType.Normal));
 
             // Act
             var playSettings = new PlaySettings(gameMode, commonOption, playerOption);
@@ -30,10 +30,10 @@
         public void CreatePlaySettings_WithDoubleMode_ShouldSucceed()
         {
             // Arrange
-            var gameMode = new GameModeStatus(GameMode.Double);
+            var gameMode = new GameMode(GameModeType.Double);
             var commonOption = new PlayOption(AutoScratch: true, LegacyNote: true, Flip: true);
-            var leftOption = new SideOption(new NoteArrangementStatus(NoteArrangement.Mirror));
-            var rightOption = new SideOption(new NoteArrangementStatus(NoteArrangement.Random));
+            var leftOption = new SideOption(new RandomOption(RandomOptionType.Mirror));
+            var rightOption = new SideOption(new RandomOption(RandomOptionType.Random));
 
             // Act
             var playSettings = new PlaySettings(gameMode, commonOption, leftOption: leftOption, rightOption: rightOption);
@@ -50,10 +50,10 @@
         public void CreatePlaySettings_WithBattleMode_ShouldSucceed()
         {
             // Arrange
-            var gameMode = new GameModeStatus(GameMode.Battle);
+            var gameMode = new GameMode(GameModeType.Battle);
             var commonOption = new PlayOption(AutoScratch: true, LegacyNote: true, Flip: false);
-            var leftOption = new SideOption(new NoteArrangementStatus(NoteArrangement.Normal));
-            var rightOption = new SideOption(new NoteArrangementStatus(NoteArrangement.Mirror));
+            var leftOption = new SideOption(new RandomOption(RandomOptionType.Normal));
+            var rightOption = new SideOption(new RandomOption(RandomOptionType.Mirror));
 
             // Act
             var playSettings = new PlaySettings(gameMode, commonOption, leftOption: leftOption, rightOption: rightOption);
@@ -70,14 +70,14 @@
         public void CreatePlaySettings_WithBattleModeAndFlipOn_ShouldFail()
         {
             // Arrange
-            var gameMode = new GameModeStatus(GameMode.Battle);
+            var gameMode = new GameMode(GameModeType.Battle);
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() =>
             {
                 var commonOption = new PlayOption(AutoScratch: true, LegacyNote: true, Flip: true);
-                var leftOption = new SideOption(new NoteArrangementStatus(NoteArrangement.Normal));
-                var rightOption = new SideOption(new NoteArrangementStatus(NoteArrangement.Mirror));
+                var leftOption = new SideOption(new RandomOption(RandomOptionType.Normal));
+                var rightOption = new SideOption(new RandomOption(RandomOptionType.Mirror));
                 var playSettings = new PlaySettings(gameMode, commonOption, leftOption: leftOption, rightOption: rightOption);
             });
         }

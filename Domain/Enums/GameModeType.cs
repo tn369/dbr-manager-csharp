@@ -1,6 +1,6 @@
 ﻿namespace Domain.Enums
 {
-    public enum GameMode
+    public enum GameModeType
     {
         Single,
         Double,

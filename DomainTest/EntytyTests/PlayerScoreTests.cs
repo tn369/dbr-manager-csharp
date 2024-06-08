@@ -15,19 +15,19 @@ namespace DomainTest.EntytyTests
             var musicId = new MusicId(1);
             var difficulty = new Difficulty(DifficultyType.Another);
             var playAt = new PlayAt(DateTime.UtcNow);
-            var gameMode = new GameModeStatus(GameMode.Double);
+            var gameMode = new GameMode(GameModeType.Double);
             var commonOption = new PlayOption(AutoScratch: true, LegacyNote: true, Flip: false);
-            var playerOption = new SideOption(new NoteArrangementStatus(NoteArrangement.Normal));
+            var playerOption = new SideOption(new RandomOption(RandomOptionType.Normal));
             var gameSettings = new PlaySettings(gameMode, commonOption, playerOption);
             var pikaGreat = new Judge(100);
             var great = new Judge(50);
             var bp = new Judge(10);
             var comboBreak = new Judge(5);
-            var clearLampStatus = new ClearLampStatus(ClearLamp.FullCombo);
+            var clearLamp = new ClearLamp(ClearLampType.FullCombo);
             var memo = new Memo("Great play!");
 
             // Act
-            var playerScore = new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, pikaGreat, great, bp, comboBreak, clearLampStatus, memo);
+            var playerScore = new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, pikaGreat, great, bp, comboBreak, clearLamp, memo);
 
             // Assert
             Assert.Equal(playerId, playerScore.PlayerId);
@@ -39,7 +39,7 @@ namespace DomainTest.EntytyTests
             Assert.Equal(great, playerScore.Great);
             Assert.Equal(bp, playerScore.Bp);
             Assert.Equal(comboBreak, playerScore.ComboBreak);
-            Assert.Equal(clearLampStatus, playerScore.ClearLampStatus);
+            Assert.Equal(clearLamp, playerScore.ClearLamp);
             Assert.Equal(memo, playerScore.Memo);
         }
     }

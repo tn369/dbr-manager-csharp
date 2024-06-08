@@ -1,4 +1,4 @@
 ﻿namespace Domain.ValueObjects
 {
-    public sealed record SideOption(NoteArrangementStatus NoteArrangement);
+    public sealed record SideOption(RandomOption RandomOption);
 }
