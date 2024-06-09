@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Domain.Tests
 {
-    public class EmailTests
+    public sealed class EmailTests
     {
         [Theory]
         [InlineData(null)]

@@ -3,7 +3,7 @@ using Xunit;
 
 namespace DomainTest.ValueObjectTests
 {
-    public class EXScoreTests
+    public sealed class EXScoreTests
     {
         [Fact]
         public void EXScore_GetValue_WorksCorrectly()

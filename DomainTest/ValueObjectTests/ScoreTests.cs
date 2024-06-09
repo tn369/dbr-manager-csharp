@@ -3,7 +3,7 @@ using Xunit;
 
 namespace DomainTest.ValueObjectTests
 {
-    public class ScoreTests
+    public sealed class ScoreTests
     {
         [Fact]
         public void Score_Constructor_ShouldInitializeProperties()

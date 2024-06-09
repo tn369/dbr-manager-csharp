@@ -1,6 +1,6 @@
 ﻿namespace Domain.ValueObjects
 {
-    public record Level
+    public sealed record Level
     {
         public int Value { get; }
 

@@ -3,7 +3,7 @@ using Xunit;
 
 namespace DomainTest.ValueObjectTests
 {
-    public class LevelTests
+    public sealed class LevelTests
     {
         [Fact]
         public void Level_MustBeAtLeastOne()

@@ -4,7 +4,7 @@ using Xunit;
 namespace DomainTest.ValueObjectTests
 {
     // Judge Tests
-    public class JudgeTests
+    public sealed class JudgeTests
     {
         [Fact]
         public void Judge_CanBeCreated_WithValidValue()

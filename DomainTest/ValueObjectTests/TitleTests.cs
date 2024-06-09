@@ -4,7 +4,7 @@ using Assert = Xunit.Assert;
 
 namespace DomainTest.ValueObjectTests
 {
-    public class TitleTests
+    public sealed class TitleTests
     {
         [Fact]
         public void NULLの場合エラー()

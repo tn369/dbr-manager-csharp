@@ -6,7 +6,7 @@
     using Xunit;
 
     // Chart Tests
-    public class ChartTests
+    public sealed class ChartTests
     {
         [Fact]
         public void Chart_CanBeCreated_WithValidParameters()

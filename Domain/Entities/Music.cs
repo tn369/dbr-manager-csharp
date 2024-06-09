@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Music(MusicId musicId, GameVersionId versionId, MusicTitle title, Genre genre, Artist artist)
+    public sealed class Music(MusicId musicId, GameVersionId versionId, MusicTitle title, Genre genre, Artist artist)
     {
         public MusicId MusicId { get; private set; } = musicId;
         public GameVersionId GameVersionId { get; private set; } = versionId;

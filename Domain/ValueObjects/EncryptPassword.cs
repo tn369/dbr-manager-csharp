@@ -1,6 +1,6 @@
 ﻿namespace Domain.ValueObjects
 {
-    public record EncryptPassword
+    public sealed record EncryptPassword
     {
         public string Value { get; }
 

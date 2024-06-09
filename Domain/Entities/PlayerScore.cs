@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class PlayerScore
+    public sealed class PlayerScore
     {
         public PlayerId PlayerId { get; private set; }
         public MusicId MusicId { get; private set; }

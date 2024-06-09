@@ -1,6 +1,6 @@
 ﻿namespace Domain.ValueObjects
 {
-    public record MusicTitle
+    public sealed record MusicTitle
     {
         public string Value { get; }
 

@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Player(PlayerId playerId, IidxId iidxId, Email email, PlayerName name, Url url, EncryptPassword encryptPassword, Salt salt)
+    public sealed class Player(PlayerId playerId, IidxId iidxId, Email email, PlayerName name, Url url, EncryptPassword encryptPassword, Salt salt)
     {
         public PlayerId PlayerId { get; private set; } = playerId;
         public IidxId IidxId { get; private set; } = iidxId;

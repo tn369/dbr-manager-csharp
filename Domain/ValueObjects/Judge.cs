@@ -1,6 +1,6 @@
 ﻿namespace Domain.ValueObjects
 {
-    public record Judge
+    public sealed record Judge
     {
         public ushort Value { get; }
 

@@ -4,7 +4,7 @@ using Xunit;
 namespace DomainTest.ValueObjectTests
 {
     // MusicId Tests
-    public class MusicIdTests
+    public sealed class MusicIdTests
     {
         [Fact]
         public void MusicId_CanBeCreated_WithValidValue()

@@ -1,6 +1,6 @@
 ﻿namespace Domain.ValueObjects
 {
-    public record Notes : IComparable<Notes>
+    public sealed record Notes : IComparable<Notes>
     {
         public ushort Value { get; }
 

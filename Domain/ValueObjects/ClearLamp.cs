@@ -2,7 +2,7 @@
 
 namespace Domain.ValueObjects
 {
-    public record ClearLamp
+    public sealed record ClearLamp
     {
         public ClearLampType Value { get; }
 

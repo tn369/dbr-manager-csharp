@@ -2,7 +2,7 @@
 
 namespace Domain.ValueObjects
 {
-    public record Difficulty
+    public sealed record Difficulty
     {
         public DifficultyType Value { get; }
 

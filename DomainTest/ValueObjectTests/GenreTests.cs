@@ -4,7 +4,7 @@ using Xunit;
 namespace DomainTest.ValueObjectTests
 {
     // Genre Tests
-    public class GenreTests
+    public sealed class GenreTests
     {
         [Fact]
         public void Genre_CannotBeNullOrEmpty()

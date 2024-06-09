@@ -4,7 +4,7 @@ using Xunit;
 namespace DomainTest.ValueObjectTests
 {
     // IidxId Tests
-    public class IidxIdTests
+    public sealed class IidxIdTests
     {
         [Fact]
         public void IidxId_CannotBeNullOrEmpty()

@@ -5,7 +5,7 @@ using Xunit;
 
 namespace DomainTest.EntytyTests
 {
-    public class PlayerScoreTests
+    public sealed class PlayerScoreTests
     {
         [Fact]
         public void CreatePlayerScore_WithValidData_ShouldSucceed()

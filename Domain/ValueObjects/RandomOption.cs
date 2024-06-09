@@ -2,7 +2,7 @@
 
 namespace Domain.ValueObjects
 {
-    public record RandomOption
+    public sealed record RandomOption
     {
         public RandomOptionType Arrangement { get; private set; }
 

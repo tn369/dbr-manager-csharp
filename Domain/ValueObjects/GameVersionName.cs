@@ -1,7 +1,7 @@
 ﻿namespace Domain.ValueObjects
 {
 
-    public record GameVersionName
+    public sealed record GameVersionName
     {
         public string Value { get; }
 

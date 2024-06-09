@@ -6,7 +6,7 @@ namespace DomainTest.EntytyTests
     using Xunit;
 
     // Music Tests
-    public class MusicTests
+    public sealed class MusicTests
     {
         [Fact]
         public void Music_CanBeCreated_WithValidParameters()

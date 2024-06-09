@@ -1,6 +1,6 @@
 ﻿namespace Domain.ValueObjects
 {
-    public record PlayAt
+    public sealed record PlayAt
     {
         public DateTime Value { get; }
 
