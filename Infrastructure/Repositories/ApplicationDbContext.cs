@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Version = Domain.Entities.Version;
+using GameVersion = Domain.Entities.GameVersion;
 
 namespace Infrastructure.Repositories
 {
@@ -11,6 +11,6 @@ namespace Infrastructure.Repositories
         public DbSet<Player> Players { get; set; }
         public DbSet<PlayerScore> PlayerScores { get; set; }
         public DbSet<Rival> Rivals { get; set; }
-        public DbSet<Version> Versions { get; set; }
+        public DbSet<GameVersion> GameVersions { get; set; }
     }
 }

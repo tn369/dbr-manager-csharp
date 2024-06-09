@@ -14,7 +14,7 @@ namespace Infrastructure.Repositories
             Players = new PlayerRepository(_context);
             PlayerScores = new PlayerScoreRepository(_context);
             Rivals = new RivalRepository(_context);
-            Versions = new VersionRepository(_context);
+            GameVersions = new GameVersionRepository(_context);
         }
 
         public IChartRepository Charts { get; private set; }
@@ -22,7 +22,7 @@ namespace Infrastructure.Repositories
         public IPlayerRepository Players { get; private set; }
         public IPlayerScoreRepository PlayerScores { get; private set; }
         public IRivalRepository Rivals { get; private set; }
-        public IVersionRepository Versions { get; private set; }
+        public IGameVersionRepository GameVersions { get; private set; }
 
         public async Task<int> CompleteAsync() => await _context.SaveChangesAsync();
 
