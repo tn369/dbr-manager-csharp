@@ -19,11 +19,10 @@ namespace DomainTest.EntytyTests
             var commonOption = new PlayOption(AutoScratch: true, LegacyNote: true, Flip: false);
             var playerOption = new SideOption(new RandomOption(RandomOptionType.Normal));
             var gameSettings = new PlaySettings(gameMode, commonOption, playerOption);
-            var pikaGreat = new Judge(100);
-            var great = new Judge(50);
+            var exScore = new EXScore(new Judge(100), new Judge(50));
             var bp = new Judge(10);
             var comboBreak = new Judge(5);
-            var score = new Score(pikaGreat, great, bp, comboBreak);
+            var score = new Score(exScore, bp, comboBreak);
             var clearLamp = new ClearLamp(ClearLampType.FullCombo);
             var memo = new Memo("Great play!");
 
