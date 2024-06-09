@@ -30,7 +30,9 @@ namespace DomainTest.ValueObjectTests
             var notes2 = new Notes(20);
 
             Assert.True(notes2 > notes1);
+            Assert.True(notes2 >= notes1);
             Assert.True(notes1 < notes2);
+            Assert.True(notes1 <= notes2);
         }
 
         [Fact]

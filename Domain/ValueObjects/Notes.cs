@@ -1,6 +1,6 @@
 ﻿namespace Domain.ValueObjects
 {
-    public record Notes
+    public record Notes : IComparable<Notes>
     {
         public ushort Value { get; }
 
@@ -8,21 +8,18 @@
         {
             Value = value;
         }
-
-        public static Notes operator +(Notes a, Notes b)
+        public int CompareTo(Notes? other)
         {
-            return new Notes((ushort)(a.Value + b.Value));
-        }
+            if (other == null) return 1;
 
-        public static bool operator >(Notes a, Notes b)
-        {
-            return a.Value > b.Value;
+            return Value.CompareTo(other.Value);
         }
+        public static Notes operator +(Notes a, Notes b) => new((ushort)(a.Value + b.Value));
 
-        public static bool operator <(Notes a, Notes b)
-        {
-            return a.Value < b.Value;
-        }
+        public static bool operator >(Notes left, Notes right) => left.CompareTo(right) > 0;
+        public static bool operator <(Notes left, Notes right) => left.CompareTo(right) < 0;
+        public static bool operator >=(Notes left, Notes right) => left.CompareTo(right) >= 0;
+        public static bool operator <=(Notes left, Notes right) => left.CompareTo(right) <= 0;
 
         public static Notes Sum(params Notes[] notesArray)
         {
