@@ -45,5 +45,30 @@ namespace DomainTest.ValueObjectTests
 
             Assert.Equal(35, result.Value);
         }
+
+        [Fact]
+        public void Notes_Sum_HandlesZeroCorrectly()
+        {
+            var notes1 = new Notes(0);
+            var notes2 = new Notes(0);
+            var result = Notes.Sum(notes1, notes2);
+
+            Assert.Equal(0, result.Value);
+        }
+
+        [Fact]
+        public void Notes_Comparison_BoundaryValues()
+        {
+            var notes1 = new Notes(0);
+            var notes2 = new Notes(0);
+            var notes3 = new Notes(1);
+
+            Assert.True(notes1 >= notes2);
+            Assert.True(notes1 <= notes2);
+            Assert.True(notes3 > notes1);
+            Assert.True(notes3 >= notes1);
+            Assert.True(notes1 < notes3);
+            Assert.True(notes1 <= notes3);
+        }
     }
 }

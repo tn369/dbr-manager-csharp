@@ -38,6 +38,21 @@ namespace DomainTest.ValueObjectTests
             Assert.True(exScore2.CompareTo(exScore1) > 0);
             Assert.Equal(0, exScore1.CompareTo(exScore1));
         }
+
+        [Fact]
+        public void EXScore_Comparison_BoundaryValues()
+        {
+            var exScore1 = new EXScore(new Judge(0), new Judge(0)); // Value = 0
+            var exScore2 = new EXScore(new Judge(0), new Judge(0)); // Value = 0
+            var exScore3 = new EXScore(new Judge(0), new Judge(1)); // Value = 1
+
+            Assert.True(exScore1 >= exScore2);
+            Assert.True(exScore1 <= exScore2);
+            Assert.True(exScore3 > exScore1);
+            Assert.True(exScore3 >= exScore1);
+            Assert.True(exScore1 < exScore3);
+            Assert.True(exScore1 <= exScore3);
+        }
     }
 
 }
