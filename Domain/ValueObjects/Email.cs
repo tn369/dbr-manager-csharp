@@ -2,6 +2,7 @@
 {
     public sealed record Email
     {
+        public string Value { get; }
         public Email(string value)
         {
             Validate(value);
@@ -39,7 +40,5 @@
                 throw new ArgumentException("Email must have text before and after '@'.", nameof(value));
             }
         }
-
-        public string Value { get; }
     }
 }

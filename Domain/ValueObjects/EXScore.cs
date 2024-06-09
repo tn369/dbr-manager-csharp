@@ -1,11 +1,17 @@
 ﻿namespace Domain.ValueObjects
 {
-    public sealed record EXScore(Judge PikaGreat, Judge Great) : IComparable<EXScore>
+    public sealed record EXScore : IComparable<EXScore>
     {
         public ushort Value => (ushort)(PikaGreat.Value * 2 + Great.Value);
 
-        public Judge PikaGreat { get; private set; } = PikaGreat;
-        public Judge Great { get; private set; } = Great;
+        public Judge PikaGreat { get; private set; }
+        public Judge Great { get; private set; }
+
+        public EXScore(Judge pikaGreat, Judge great)
+        {
+            PikaGreat = pikaGreat;
+            Great = great;
+        }
 
         public int CompareTo(EXScore? other)
         {

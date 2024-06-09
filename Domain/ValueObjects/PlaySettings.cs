@@ -27,5 +27,4 @@ namespace Domain.ValueObjects
             RightOption = rightOption;
         }
     }
-
 }
