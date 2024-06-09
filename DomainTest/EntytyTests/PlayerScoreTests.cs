@@ -23,11 +23,12 @@ namespace DomainTest.EntytyTests
             var great = new Judge(50);
             var bp = new Judge(10);
             var comboBreak = new Judge(5);
+            var score = new Score(pikaGreat, great, bp, comboBreak);
             var clearLamp = new ClearLamp(ClearLampType.FullCombo);
             var memo = new Memo("Great play!");
 
             // Act
-            var playerScore = new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, pikaGreat, great, bp, comboBreak, clearLamp, memo);
+            var playerScore = new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, score, clearLamp, memo);
 
             // Assert
             Assert.Equal(playerId, playerScore.PlayerId);
@@ -35,10 +36,7 @@ namespace DomainTest.EntytyTests
             Assert.Equal(difficulty, playerScore.Difficulty);
             Assert.Equal(playAt, playerScore.PlayAt);
             Assert.Equal(gameSettings, playerScore.PlaySettings);
-            Assert.Equal(pikaGreat, playerScore.PikaGreat);
-            Assert.Equal(great, playerScore.Great);
-            Assert.Equal(bp, playerScore.Bp);
-            Assert.Equal(comboBreak, playerScore.ComboBreak);
+            Assert.Equal(score, playerScore.Score);
             Assert.Equal(clearLamp, playerScore.ClearLamp);
             Assert.Equal(memo, playerScore.Memo);
         }

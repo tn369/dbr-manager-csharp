@@ -9,24 +9,18 @@ namespace Domain.Entities
         public Difficulty Difficulty { get; private set; }
         public PlayAt PlayAt { get; private set; }
         public PlaySettings PlaySettings { get; private set; }
-        public Judge PikaGreat { get; private set; }
-        public Judge Great { get; private set; }
-        public Judge Bp { get; private set; }
-        public Judge ComboBreak { get; private set; }
+        public Score Score { get; private set; }
         public ClearLamp ClearLamp { get; private set; }
         public Memo Memo { get; private set; }
 
-        public PlayerScore(PlayerId playerId, MusicId musicId, Difficulty difficulty, PlayAt playAt, PlaySettings playSettings, Judge pikaGreat, Judge great, Judge bp, Judge comboBreak, ClearLamp clearLamp, Memo memo)
+        public PlayerScore(PlayerId playerId, MusicId musicId, Difficulty difficulty, PlayAt playAt, PlaySettings playSettings, Score score, ClearLamp clearLamp, Memo memo)
         {
             PlayerId = playerId;
             MusicId = musicId;
             Difficulty = difficulty;
             PlayAt = playAt;
             PlaySettings = playSettings;
-            PikaGreat = pikaGreat;
-            Great = great;
-            Bp = bp;
-            ComboBreak = comboBreak;
+            Score = score;
             ClearLamp = clearLamp;
             Memo = memo;
         }
