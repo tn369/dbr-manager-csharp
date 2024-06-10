@@ -2,9 +2,9 @@
 {
     public sealed record Bpm
     {
-        public int Value { get; }
+        public ushort Value { get; }
 
-        public Bpm(int value)
+        public Bpm(ushort value)
         {
             if (value <= 0) throw new ArgumentException("Bpm must be greater than 0.");
             Value = value;
