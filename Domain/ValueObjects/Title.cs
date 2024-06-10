@@ -1,13 +1,12 @@
 ﻿namespace Domain.ValueObjects
 {
-    internal sealed record Title
+    public sealed record Title
     {
+        public string Value { get; }
         public Title(string value)
         {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException($"Title を null または空白にすることはできません。", nameof(value));
-            }
+            ArgumentException.ThrowIfNullOrWhiteSpace(value, nameof(value));
+            Value = value;
         }
     }
 }

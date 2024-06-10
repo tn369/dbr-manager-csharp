@@ -1,27 +1,24 @@
 ﻿using Domain.ValueObjects;
 using Xunit;
-using Assert = Xunit.Assert;
 
 namespace DomainTest.ValueObjectTests
 {
     public sealed class TitleTests
     {
         [Fact]
-        public void NULLの場合エラー()
+        public void Title_CannotBeNullOrWhiteSpace()
         {
-            string value = null;
-
-            var exception = Assert.Throws<ArgumentException>(() => new Title(value));
-            Assert.Contains("Title を null または空白にすることはできません。", exception.Message);
+            Assert.Throws<ArgumentNullException>(() => new Title(null));
+            Assert.Throws<ArgumentException>(() => new Title(""));
+            Assert.Throws<ArgumentException>(() => new Title("  "));
         }
 
         [Fact]
-        public void スペースの場合エラー()
+        public void Title_CanBeCreated_WithValidValue()
         {
-            string value = "   ";
-
-            var exception = Assert.Throws<ArgumentException>(() => new Title(value));
-            Assert.Contains("Title を null または空白にすることはできません。", exception.Message);
+            string value = "高高度降下低高度開傘";
+            var title = new Title(value);
+            Assert.Equal(value, title.Value);
         }
     }
 }
