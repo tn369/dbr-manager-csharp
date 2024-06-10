@@ -7,11 +7,11 @@ namespace DomainTest.ValueObjectTests
     public sealed class GenreTests
     {
         [Fact]
-        public void Genre_CannotBeNullOrEmpty()
+        public void Genre_CannotBeNullOrWhiteSpace()
         {
-            string value = null;
-            var exception = Assert.Throws<ArgumentException>(() => new Genre(value));
-            Assert.Equal("Genre cannot be null or empty.", exception.Message);
+            Assert.Throws<ArgumentNullException>(() => new Genre(null));
+            Assert.Throws<ArgumentException>(() => new Genre(""));
+            Assert.Throws<ArgumentException>(() => new Genre("  "));
         }
 
         [Fact]
