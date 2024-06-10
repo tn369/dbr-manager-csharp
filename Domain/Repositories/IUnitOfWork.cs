@@ -6,7 +6,6 @@
         IMusicRepository Musics { get; }
         IPlayerRepository Players { get; }
         IPlayerScoreRepository PlayerScores { get; }
-        IRivalRepository Rivals { get; }
         IGameVersionRepository GameVersions { get; }
 
         Task<int> CompleteAsync();
