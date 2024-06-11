@@ -24,5 +24,6 @@ namespace Domain.Entities
             ClearLamp = clearLamp;
             Memo = memo;
         }
+        private PlayerScore() { }
     }
 }

@@ -11,5 +11,7 @@ namespace Domain.Entities
             GameVersionId = gameVersionId;
             Name = name;
         }
+        private GameVersion() { }
+
     }
 }

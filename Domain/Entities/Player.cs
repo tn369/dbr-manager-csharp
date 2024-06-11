@@ -19,6 +19,7 @@ namespace Domain.Entities
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Profile = profile ?? new Profile(string.Empty);
         }
+        private Player() { }
 
         public void AddRival(Player rival)
         {

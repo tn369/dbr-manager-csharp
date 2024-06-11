@@ -17,6 +17,7 @@ namespace Domain.Entities
             Genre = genre;
             Artist = artist;
         }
+        private Music() { }
     }
 
 }
