@@ -29,10 +29,9 @@ namespace Domain.Tests.ValueObjects
         {
             // Arrange
             var invalidDifficultyType = (DifficultyType)(-1);
-            var difficulty = new Difficulty(invalidDifficultyType);
 
             // Act & Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => difficulty.GetDisplayName());
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Difficulty(invalidDifficultyType));
         }
     }
 }

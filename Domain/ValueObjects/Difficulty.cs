@@ -8,6 +8,10 @@ namespace Domain.ValueObjects
 
         public Difficulty(DifficultyType value)
         {
+            if (!Enum.IsDefined(typeof(DifficultyType), value))
+            {
+                throw new ArgumentOutOfRangeException(nameof(value), $"Unknown Difficulty Type : {value}");
+            }
             Value = value;
         }
 
@@ -20,7 +24,7 @@ namespace Domain.ValueObjects
                 DifficultyType.Hyper => "HYPER",
                 DifficultyType.Another => "ANOTHER",
                 DifficultyType.Leggendaria => "LEGGENDARIA",
-                _ => throw new ArgumentOutOfRangeException(nameof(Value), "Unknown Difficulty Type"),
+                _ => throw new ArgumentOutOfRangeException(nameof(Value), $"Unknown Difficulty Type : {Value}"),
             };
         }
     }

@@ -10,12 +10,12 @@ namespace Domain.ValueObjects
 
         public static PlayOption Create(GameMode mode, bool autoScratch, bool legacyNote, bool flip)
         {
-            if (mode.Mode == GameModeType.Battle)
+            if (mode.Value == GameModeType.Battle)
             {
                 return new PlayOption(autoScratch, legacyNote, Flip: false);
             }
 
-            if (mode.Mode == GameModeType.Single)
+            if (mode.Value == GameModeType.Single)
             {
                 return new PlayOption(autoScratch, legacyNote, Flip: false);
             }

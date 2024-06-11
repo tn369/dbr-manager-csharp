@@ -8,6 +8,10 @@ namespace Domain.ValueObjects
 
         public ClearLamp(ClearLampType value)
         {
+            if (!Enum.IsDefined(typeof(ClearLampType), value))
+            {
+                throw new ArgumentOutOfRangeException(nameof(value), $"Unknown ClearLampType: {value}");
+            }
             Value = value;
         }
 
@@ -23,7 +27,7 @@ namespace Domain.ValueObjects
                 ClearLampType.EXHardClear => "EX Hard Clear",
                 ClearLampType.FullCombo => "Full Combo",
                 ClearLampType.Perfect => "Perfect",
-                _ => Value.ToString(),
+                _ => throw new ArgumentOutOfRangeException(nameof(Value), $"Unknown ClearLampType: {Value}"),
             };
         }
     }

@@ -4,16 +4,20 @@ namespace Domain.ValueObjects
 {
     public sealed record RandomOption
     {
-        public RandomOptionType Arrangement { get; private set; }
+        public RandomOptionType Value { get; private set; }
 
-        public RandomOption(RandomOptionType arrangement)
+        public RandomOption(RandomOptionType value)
         {
-            Arrangement = arrangement;
+            if (!Enum.IsDefined(typeof(RandomOptionType), value))
+            {
+                throw new ArgumentOutOfRangeException(nameof(value), $"Unknown RandomOptionType: {value}");
+            }
+            Value = value;
         }
 
         public string GetName()
         {
-            return Arrangement switch
+            return Value switch
             {
                 RandomOptionType.Normal => "Normal",
                 RandomOptionType.Random => "Random",
@@ -21,7 +25,7 @@ namespace Domain.ValueObjects
                 RandomOptionType.SRandom => "S-Random",
                 RandomOptionType.HRandom => "H-Random",
                 RandomOptionType.Mirror => "Mirror",
-                _ => throw new ArgumentOutOfRangeException()
+                _ => throw new ArgumentOutOfRangeException(nameof(Value), $"Unknown RandomOptionType: {Value}"),
             };
         }
     }

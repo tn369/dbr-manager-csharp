@@ -11,12 +11,12 @@ namespace Domain.ValueObjects
         public SideOption? RightOption { get; }
         public PlaySettings(GameMode mode, PlayOption commonOption, SideOption? playerOption = null, SideOption? leftOption = null, SideOption? rightOption = null)
         {
-            if (mode.Mode == GameModeType.Single && (leftOption != null || rightOption != null))
+            if (mode.Value == GameModeType.Single && (leftOption != null || rightOption != null))
             {
                 throw new ArgumentException("Single mode cannot have left or right options.");
             }
 
-            if (mode.Mode == GameModeType.Battle && commonOption.Flip)
+            if (mode.Value == GameModeType.Battle && commonOption.Flip)
             {
                 throw new ArgumentException("Flip option must be OFF in Battle mode.");
             }

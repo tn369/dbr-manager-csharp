@@ -2,15 +2,24 @@
 
 namespace Domain.ValueObjects
 {
-    public sealed record GameMode(GameModeType Mode)
+    public sealed record GameMode
     {
-        public string GetName() => Mode switch
+        public GameModeType Value { get; }
+
+        public GameMode(GameModeType value)
+        {
+            if (!Enum.IsDefined(typeof(GameModeType), value))
+            {
+                throw new ArgumentOutOfRangeException(nameof(value), $"Unknown Game Mode: {value}");
+            }
+            Value = value;
+        }
+        public string GetName() => Value switch
         {
             GameModeType.Single => "Single",
             GameModeType.Double => "Double",
             GameModeType.Battle => "Battle",
-            _ => throw new ArgumentOutOfRangeException(nameof(Mode), "Unknown Game Mode")
+            _ => throw new ArgumentOutOfRangeException(nameof(Value), $"Unknown Game Mode: {Value}")
         };
     }
-
 }

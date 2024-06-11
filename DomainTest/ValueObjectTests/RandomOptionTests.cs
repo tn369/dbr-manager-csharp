@@ -13,10 +13,10 @@ namespace DomainTest.ValueObjectTests
         [InlineData(RandomOptionType.SRandom, "S-Random")]
         [InlineData(RandomOptionType.HRandom, "H-Random")]
         [InlineData(RandomOptionType.Mirror, "Mirror")]
-        public void GetName_ShouldReturnCorrectName(RandomOptionType arrangement, string expectedName)
+        public void GetName_ShouldReturnCorrectName(RandomOptionType value, string expectedName)
         {
             // Arrange
-            var randomOption = new RandomOption(arrangement);
+            var randomOption = new RandomOption(value);
 
             // Act
             var actualName = randomOption.GetName();
@@ -29,11 +29,10 @@ namespace DomainTest.ValueObjectTests
         public void GetName_ShouldThrowArgumentOutOfRangeException_ForUnknownRandomOption()
         {
             // Arrange
-            var invalidArrangement = (RandomOptionType)999;
-            var randomOption = new RandomOption(invalidArrangement);
+            var invalidValue = (RandomOptionType)999;
 
             // Act & Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => randomOption.GetName());
+            Assert.Throws<ArgumentOutOfRangeException>(() => new RandomOption(invalidValue));
         }
     }
 }

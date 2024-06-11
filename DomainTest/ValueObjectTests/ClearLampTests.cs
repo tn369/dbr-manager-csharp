@@ -26,5 +26,15 @@ namespace DomainTest.ValueObjectTests
             // Assert
             Assert.Equal(expectedDisplayName, displayName);
         }
+
+        [Fact]
+        public void GetName_ShouldThrowArgumentOutOfRangeException_ForUnknownClearLamp()
+        {
+            // Arrange
+            var invalidValue = (ClearLampType)999;
+
+            // Act & Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => new ClearLamp(invalidValue));
+        }
     }
 }

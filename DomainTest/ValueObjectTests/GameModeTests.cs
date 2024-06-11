@@ -27,10 +27,9 @@ namespace DomainTest.ValueObjectTests
         {
             // Arrange
             var invalidMode = (GameModeType)999;
-            var gameMode = new GameMode(invalidMode);
 
             // Act & Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => gameMode.GetName());
+            Assert.Throws<ArgumentOutOfRangeException>(() => new GameMode(invalidMode));
         }
     }
 }
