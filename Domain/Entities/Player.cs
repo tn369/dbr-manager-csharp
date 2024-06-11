@@ -8,14 +8,13 @@ namespace Domain.Entities
 
         public IReadOnlyCollection<Player> Rivals => _rivals.AsReadOnly();
 
-        public PlayerId PlayerId { get; private set; }
+        public PlayerId? PlayerId { get; private set; }
         public IidxId IidxId { get; private set; }
         public PlayerName Name { get; private set; }
         public Profile Profile { get; private set; }
 
-        public Player(PlayerId playerId, IidxId iidxId, PlayerName name, Profile? profile)
+        public Player(IidxId iidxId, PlayerName name, Profile? profile)
         {
-            PlayerId = playerId ?? throw new ArgumentNullException(nameof(playerId));
             IidxId = iidxId ?? throw new ArgumentNullException(nameof(iidxId));
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Profile = profile ?? new Profile(string.Empty);
