@@ -24,6 +24,10 @@ namespace Infrastructure.Repositories
 
         public async Task<int> CompleteAsync() => await _context.SaveChangesAsync();
 
-        public void Dispose() => _context.Dispose();
+        public void Dispose()
+        {
+            _context.Dispose();
+            GC.SuppressFinalize(this);
+        }
     }
 }
