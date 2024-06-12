@@ -53,6 +53,50 @@ namespace DomainTest.ValueObjectTests
             Assert.True(exScore1 < exScore3);
             Assert.True(exScore1 <= exScore3);
         }
-    }
 
+        [Fact]
+        public void EXScore_NullComparison_WorksCorrectly()
+        {
+            var exScore1 = new EXScore(new Judge(10), new Judge(20)); // Value = 40
+            EXScore? exScore2 = null;
+
+            Assert.True(exScore1.CompareTo(exScore2) > 0);
+        }
+
+        [Fact]
+        public void EXScore_NullOperatorComparison_WorksCorrectly()
+        {
+            var exScore1 = new EXScore(new Judge(10), new Judge(20)); // Value = 40
+            EXScore? exScore2 = null;
+
+            Assert.True(exScore1 > exScore2);
+            Assert.True(exScore2 < exScore1);
+            Assert.False(exScore1 < exScore2);
+            Assert.False(exScore2 > exScore1);
+            Assert.True(exScore1 >= exScore2);
+            Assert.True(exScore2 <= exScore1);
+            Assert.False(exScore1 <= exScore2);
+            Assert.False(exScore2 >= exScore1);
+        }
+
+        [Fact]
+        public void EXScore_Equality_WorksCorrectly()
+        {
+            var exScore1 = new EXScore(new Judge(10), new Judge(20)); // Value = 40
+            var exScore2 = new EXScore(new Judge(10), new Judge(20)); // Value = 40
+
+            Assert.True(exScore1 == exScore2);
+            Assert.False(exScore1 != exScore2);
+        }
+
+        [Fact]
+        public void EXScore_Inequality_WorksCorrectly()
+        {
+            var exScore1 = new EXScore(new Judge(10), new Judge(20)); // Value = 40
+            var exScore3 = new EXScore(new Judge(20), new Judge(5));  // Value = 45
+
+            Assert.False(exScore1 == exScore3);
+            Assert.True(exScore1 != exScore3);
+        }
+    }
 }
