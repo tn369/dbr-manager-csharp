@@ -98,5 +98,35 @@ namespace DomainTest.ValueObjectTests
             Assert.False(exScore1 == exScore3);
             Assert.True(exScore1 != exScore3);
         }
+
+        [Fact]
+        public void EXScore_ShouldThrowArgumentNullException_WhenPikaGreatIsNull()
+        {
+            Judge? judgePikaGreat = null;
+            var judgeGreat = new Judge(20);
+
+            Assert.Throws<ArgumentNullException>(() => new EXScore(judgePikaGreat!, judgeGreat));
+        }
+
+        [Fact]
+        public void EXScore_ShouldThrowArgumentNullException_WhenGreatIsNull()
+        {
+            var judgePikaGreat = new Judge(10);
+            Judge? judgeGreat = null;
+
+            Assert.Throws<ArgumentNullException>(() => new EXScore(judgePikaGreat, judgeGreat!));
+        }
+
+        [Fact]
+        public void EXScore_ReferenceEquals_WorksCorrectly()
+        {
+            var exScore1 = new EXScore(new Judge(10), new Judge(20)); // Value = 40
+            var exScore2 = exScore1;
+
+            Assert.False(exScore1 > exScore2);
+            Assert.False(exScore1 < exScore2);
+            Assert.True(exScore1 >= exScore2);
+            Assert.True(exScore1 <= exScore2);
+        }
     }
 }
