@@ -17,7 +17,6 @@ namespace DomainTest.EntityTests
             var profile1 = new Profile("Player 1's profile");
             var player1 = new Player(iidxId1, name1, profile1);
 
-            var playerId2 = new PlayerId(2);
             var iidxId2 = new IidxId("8765-4321");
             var name2 = new PlayerName("Player 2");
             var profile2 = new Profile("Player 2's profile");
