@@ -13,5 +13,11 @@ namespace DomainTest.ValueObjectTests
             var musicId = new MusicId(value);
             Assert.Equal(value, musicId.Value);
         }
+
+        [Fact]
+        public void Constructor_InvalidValue_ShouldThrowArgumentException()
+        {
+            Assert.Throws<ArgumentException>(() => new MusicId(0));
+        }
     }
 }

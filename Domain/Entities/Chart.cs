@@ -38,7 +38,6 @@ namespace Domain.Entities
             NotesCharge = notesCharge;
             NotesBackspin = notesBackspin;
         }
-
         private Chart() { }
     }
 }

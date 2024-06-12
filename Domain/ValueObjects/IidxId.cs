@@ -16,10 +16,7 @@ namespace Domain.ValueObjects
         /// <exception cref="ArgumentException">空白、数値8桁以外の場合</exception>
         public IidxId(string value)
         {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException("IidxId must not be null or empty.");
-            }
+            ArgumentException.ThrowIfNullOrWhiteSpace(value, nameof(value));
             var regex = truePattern();
             if (!regex.IsMatch(value))
             {

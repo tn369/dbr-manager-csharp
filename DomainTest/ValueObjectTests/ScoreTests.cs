@@ -35,5 +35,27 @@ namespace DomainTest.ValueObjectTests
             // Assert
             Assert.Null(score.ComboBreak);
         }
+
+        [Fact]
+        public void Constructor_WithNullExScore_ShouldThrowArgumentNullException()
+        {
+            // Arrange
+            var bp = new Judge(10);
+            var comboBreak = new Judge(5);
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => new Score(null, bp, comboBreak));
+        }
+
+        [Fact]
+        public void Constructor_WithNullBp_ShouldThrowArgumentNullException()
+        {
+            // Arrange
+            var exScore = new EXScore(new Judge(100), new Judge(50));
+            var comboBreak = new Judge(5);
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => new Score(exScore, null, comboBreak));
+        }
     }
 }

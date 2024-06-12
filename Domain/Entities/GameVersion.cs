@@ -12,6 +12,5 @@ namespace Domain.Entities
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }
         private GameVersion() { }
-
     }
 }

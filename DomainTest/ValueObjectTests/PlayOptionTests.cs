@@ -29,7 +29,7 @@ namespace DomainTest.ValueObjectTests
         public void WithAutoScratch_ShouldReturnNewPlayOptionWithUpdatedAutoScratch()
         {
             // Arrange
-            var playOption = new PlayOption(false, true, true);
+            var playOption = PlayOption.Create(new GameMode(GameModeType.Double), false, true, true);
 
             // Act
             var newPlayOption = playOption.WithAutoScratch(true);
@@ -44,7 +44,7 @@ namespace DomainTest.ValueObjectTests
         public void WithLegacyNote_ShouldReturnNewPlayOptionWithUpdatedLegacyNote()
         {
             // Arrange
-            var playOption = new PlayOption(true, false, true);
+            var playOption = PlayOption.Create(new GameMode(GameModeType.Double), true, false, true);
 
             // Act
             var newPlayOption = playOption.WithLegacyNote(true);
@@ -59,7 +59,7 @@ namespace DomainTest.ValueObjectTests
         public void WithFlip_ShouldReturnNewPlayOptionWithUpdatedFlip()
         {
             // Arrange
-            var playOption = new PlayOption(true, true, false);
+            var playOption = PlayOption.Create(new GameMode(GameModeType.Double), true, true, false);
 
             // Act
             var newPlayOption = playOption.WithFlip(true);

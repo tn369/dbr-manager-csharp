@@ -16,7 +16,7 @@ namespace DomainTest.EntityTests
             var difficulty = new Difficulty(DifficultyType.Another);
             var playAt = new PlayAt(DateTime.UtcNow);
             var gameMode = new GameMode(GameModeType.Double);
-            var commonOption = new PlayOption(AutoScratch: true, LegacyNote: true, Flip: false);
+            var commonOption = PlayOption.Create(gameMode, autoScratch: true, legacyNote: true, flip: false);
             var playerOption = new SideOption(new RandomOption(RandomOptionType.Normal));
             var gameSettings = new PlaySettings(gameMode, commonOption, playerOption);
             var exScore = new EXScore(new Judge(100), new Judge(50));
@@ -49,7 +49,7 @@ namespace DomainTest.EntityTests
             var difficulty = new Difficulty(DifficultyType.Another);
             var playAt = new PlayAt(DateTime.UtcNow);
             var gameMode = new GameMode(GameModeType.Double);
-            var commonOption = new PlayOption(AutoScratch: true, LegacyNote: true, Flip: false);
+            var commonOption = PlayOption.Create(gameMode, autoScratch: true, legacyNote: true, flip: false);
             var playerOption = new SideOption(new RandomOption(RandomOptionType.Normal));
             var gameSettings = new PlaySettings(gameMode, commonOption, playerOption);
             var exScore = new EXScore(new Judge(100), new Judge(50));

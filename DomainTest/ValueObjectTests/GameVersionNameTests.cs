@@ -16,7 +16,7 @@ namespace DomainTest.ValueObjectTests
         [Fact]
         public void Constructor_NullOrEmptyValue_ShouldThrowArgumentException()
         {
-            Assert.Throws<ArgumentException>(() => new GameVersionName(null));
+            Assert.Throws<ArgumentNullException>(() => new GameVersionName(null));
             Assert.Throws<ArgumentException>(() => new GameVersionName(""));
         }
     }

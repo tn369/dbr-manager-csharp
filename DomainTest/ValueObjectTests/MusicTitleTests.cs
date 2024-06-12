@@ -16,8 +16,9 @@ namespace DomainTest.ValueObjectTests
         [Fact]
         public void Constructor_NullOrEmptyValue_ShouldThrowArgumentException()
         {
-            Assert.Throws<ArgumentException>(() => new MusicTitle(null));
+            Assert.Throws<ArgumentNullException>(() => new MusicTitle(null));
             Assert.Throws<ArgumentException>(() => new MusicTitle(""));
+            Assert.Throws<ArgumentException>(() => new MusicTitle("   "));
         }
     }
 }

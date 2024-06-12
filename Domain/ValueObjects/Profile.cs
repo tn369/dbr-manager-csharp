@@ -6,7 +6,8 @@
 
         public Profile(string value)
         {
-            Value = value ?? throw new ArgumentNullException(nameof(value));
+            ArgumentNullException.ThrowIfNull(value);
+            Value = value;
         }
     }
 }

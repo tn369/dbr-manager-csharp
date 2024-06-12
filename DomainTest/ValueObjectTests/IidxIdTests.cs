@@ -9,9 +9,9 @@ namespace DomainTest.ValueObjectTests
         [Fact]
         public void IidxId_CannotBeNullOrEmpty()
         {
-            string value = null;
-            var exception = Assert.Throws<ArgumentException>(() => new IidxId(value));
-            Assert.Contains("IidxId must not be null or empty.", exception.Message);
+            Assert.Throws<ArgumentNullException>(() => new IidxId(null));
+            Assert.Throws<ArgumentException>(() => new IidxId(""));
+            Assert.Throws<ArgumentException>(() => new IidxId("   "));
         }
 
         [Theory]

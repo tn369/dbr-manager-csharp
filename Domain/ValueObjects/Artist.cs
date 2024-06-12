@@ -6,7 +6,7 @@
 
         public Artist(string value)
         {
-            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Artist cannot be null or empty.");
+            ArgumentException.ThrowIfNullOrWhiteSpace(value, nameof(value));
             Value = value;
         }
     }

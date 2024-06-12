@@ -20,19 +20,12 @@
         }
 
         [Fact]
-        public void GameVersion_ShouldThrowException_WhenGameVersionIdIsNull()
-        {
-            var name = new GameVersionName("Test Name");
-            var exception = Assert.Throws<ArgumentNullException>(() => new GameVersion(null, name));
-            Assert.Contains("Value cannot be null. (Parameter 'gameVersionId')", exception.Message);
-        }
-
-        [Fact]
         public void GameVersion_ShouldThrowException_WhenNameIsNull()
         {
             var gameVersionId = new GameVersionId(1);
-            var exception = Assert.Throws<ArgumentNullException>(() => new GameVersion(gameVersionId, null));
-            Assert.Contains("Value cannot be null. (Parameter 'name')", exception.Message);
+            var name = new GameVersionName("Test Name");
+            Assert.Throws<ArgumentNullException>(() => new GameVersion(null, name));
+            Assert.Throws<ArgumentNullException>(() => new GameVersion(gameVersionId, null));
         }
     }
 }
