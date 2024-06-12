@@ -15,14 +15,14 @@ namespace Domain.Entities
 
         public PlayerScore(PlayerId playerId, MusicId musicId, Difficulty difficulty, PlayAt playAt, PlaySettings playSettings, Score score, ClearLamp clearLamp, Memo memo)
         {
-            PlayerId = playerId;
-            MusicId = musicId;
-            Difficulty = difficulty;
-            PlayAt = playAt;
-            PlaySettings = playSettings;
-            Score = score;
-            ClearLamp = clearLamp;
-            Memo = memo;
+            PlayerId = playerId ?? throw new ArgumentNullException(nameof(playerId));
+            MusicId = musicId ?? throw new ArgumentNullException(nameof(musicId));
+            Difficulty = difficulty ?? throw new ArgumentNullException(nameof(difficulty));
+            PlayAt = playAt ?? throw new ArgumentNullException(nameof(playAt));
+            PlaySettings = playSettings ?? throw new ArgumentNullException(nameof(playSettings));
+            Score = score ?? throw new ArgumentNullException(nameof(score));
+            ClearLamp = clearLamp ?? throw new ArgumentNullException(nameof(clearLamp));
+            Memo = memo ?? throw new ArgumentNullException(nameof(memo));
         }
         private PlayerScore() { }
     }

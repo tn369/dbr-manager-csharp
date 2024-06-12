@@ -15,6 +15,15 @@ namespace Domain.Entities
 
         public Chart(MusicId musicId, Difficulty difficulty, Level level, Bpm bpm, Notes notesTotal, Notes notesScratch, Notes notesCharge, Notes notesBackspin)
         {
+            ArgumentNullException.ThrowIfNull(notesTotal);
+            ArgumentNullException.ThrowIfNull(notesScratch);
+            ArgumentNullException.ThrowIfNull(notesCharge);
+            ArgumentNullException.ThrowIfNull(notesBackspin);
+            ArgumentNullException.ThrowIfNull(musicId);
+            ArgumentNullException.ThrowIfNull(difficulty);
+            ArgumentNullException.ThrowIfNull(level);
+            ArgumentNullException.ThrowIfNull(bpm);
+
             if (Notes.Sum(notesScratch, notesCharge, notesBackspin) > notesTotal)
             {
                 throw new ArgumentException("NotesScratch, NotesCharge, and NotesBackspin total cannot exceed NotesTotal.");

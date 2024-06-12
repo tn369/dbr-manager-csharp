@@ -39,5 +39,35 @@ namespace DomainTest.EntytyTests
             Assert.Equal(clearLamp, playerScore.ClearLamp);
             Assert.Equal(memo, playerScore.Memo);
         }
+
+        [Fact]
+        public void PlayerScore_ShouldThrowException_AnyArgumentIsNull()
+        {
+            // Arrange
+            var playerId = new PlayerId(1);
+            var musicId = new MusicId(1);
+            var difficulty = new Difficulty(DifficultyType.Another);
+            var playAt = new PlayAt(DateTime.UtcNow);
+            var gameMode = new GameMode(GameModeType.Double);
+            var commonOption = new PlayOption(AutoScratch: true, LegacyNote: true, Flip: false);
+            var playerOption = new SideOption(new RandomOption(RandomOptionType.Normal));
+            var gameSettings = new PlaySettings(gameMode, commonOption, playerOption);
+            var exScore = new EXScore(new Judge(100), new Judge(50));
+            var bp = new Judge(10);
+            var comboBreak = new Judge(5);
+            var score = new Score(exScore, bp, comboBreak);
+            var clearLamp = new ClearLamp(ClearLampType.FullCombo);
+            var memo = new Memo("Great play!");
+
+            // Act
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(null, musicId, difficulty, playAt, gameSettings, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, null, difficulty, playAt, gameSettings, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, null, playAt, gameSettings, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, difficulty, null, gameSettings, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, difficulty, playAt, null, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, null, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, score, null, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, score, clearLamp, null));
+        }
     }
 }

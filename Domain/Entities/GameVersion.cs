@@ -8,8 +8,8 @@ namespace Domain.Entities
         public GameVersionName Name { get; private set; }
         public GameVersion(GameVersionId gameVersionId, GameVersionName name)
         {
-            GameVersionId = gameVersionId;
-            Name = name;
+            GameVersionId = gameVersionId ?? throw new ArgumentNullException(nameof(gameVersionId));
+            Name = name ?? throw new ArgumentNullException(nameof(name));
         }
         private GameVersion() { }
 
