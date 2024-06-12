@@ -2,7 +2,7 @@
 using Domain.ValueObjects;
 using Xunit;
 
-namespace DomainTest.EntytyTests
+namespace DomainTest.EntityTests
 {
 
     // Player Tests

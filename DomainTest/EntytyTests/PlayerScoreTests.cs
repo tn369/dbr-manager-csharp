@@ -3,7 +3,7 @@ using Domain.Enums;
 using Domain.ValueObjects;
 using Xunit;
 
-namespace DomainTest.EntytyTests
+namespace DomainTest.EntityTests
 {
     public sealed class PlayerScoreTests
     {

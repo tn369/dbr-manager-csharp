@@ -1,4 +1,4 @@
-﻿namespace DomainTest.EntytyTests
+﻿namespace DomainTest.EntityTests
 {
     using Domain.Entities;
     using Domain.ValueObjects;
