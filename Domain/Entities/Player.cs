@@ -10,10 +10,10 @@ namespace Domain.Entities
 
         public PlayerId? PlayerId { get; private set; }
         public IidxId IidxId { get; private set; }
-        public PlayerName Name { get; private set; }
+        public DJName Name { get; private set; }
         public Profile Profile { get; private set; }
 
-        public Player(IidxId iidxId, PlayerName name, Profile? profile)
+        public Player(IidxId iidxId, DJName name, Profile? profile)
         {
             IidxId = iidxId ?? throw new ArgumentNullException(nameof(iidxId));
             Name = name ?? throw new ArgumentNullException(nameof(name));

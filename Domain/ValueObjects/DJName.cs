@@ -1,10 +1,10 @@
 ﻿namespace Domain.ValueObjects
 {
-    public sealed record PlayerName
+    public sealed record DJName
     {
         public string Value { get; }
 
-        public PlayerName(string value)
+        public DJName(string value)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(value, nameof(value));
             Value = value;
