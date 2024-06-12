@@ -18,12 +18,12 @@ namespace Domain.ValueObjects
         {
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentException($"IidxId を null または空白にすることはできません。", nameof(value));
+                throw new ArgumentException("IidxId must not be null or empty.");
             }
             var regex = truePattern();
             if (!regex.IsMatch(value))
             {
-                throw new ArgumentException($"IidxId の形式が誤っています。", nameof(value));
+                throw new ArgumentException("Invalid IidxId format.");
             }
 
             var formatedValue = regex.Replace(value, "$1-$2").ConvertFullToHalfNumbers();
