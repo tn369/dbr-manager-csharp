@@ -12,10 +12,10 @@ namespace Domain.Entities
 
         public Music(GameVersionId versionId, MusicTitle title, Genre genre, Artist artist)
         {
-            GameVersionId = versionId;
-            Title = title;
-            Genre = genre;
-            Artist = artist;
+            GameVersionId = versionId ?? throw new ArgumentNullException(nameof(versionId));
+            Title = title ?? throw new ArgumentNullException(nameof(title));
+            Genre = genre ?? throw new ArgumentNullException(nameof(genre));
+            Artist = artist ?? throw new ArgumentNullException(nameof(artist));
         }
         private Music() { }
     }
