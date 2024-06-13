@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainTest", "DomainTest\DomainTest.csproj", "{38B9504C-B71D-4A4A-BBBD-5E8BF9477127}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainTest", "tests\DomainTest\DomainTest.csproj", "{38B9504C-B71D-4A4A-BBBD-5E8BF9477127}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{F2795D93-FC08-4CBA-8A2F-E90C9D93E2DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain.csproj", "{F2795D93-FC08-4CBA-8A2F-E90C9D93E2DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{3BA8229D-27EF-4A0C-93C8-0346CDC5DA6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{3BA8229D-27EF-4A0C-93C8-0346CDC5DA6A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{45F3C42D-8DD7-44E9-82F3-004871B09EB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5A6C91EF-A3E1-410E-AE0C-271870E1B7E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +48,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{38B9504C-B71D-4A4A-BBBD-5E8BF9477127} = {5A6C91EF-A3E1-410E-AE0C-271870E1B7E8}
+		{F2795D93-FC08-4CBA-8A2F-E90C9D93E2DB} = {45F3C42D-8DD7-44E9-82F3-004871B09EB5}
+		{3BA8229D-27EF-4A0C-93C8-0346CDC5DA6A} = {45F3C42D-8DD7-44E9-82F3-004871B09EB5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7026FDA-CAE1-450B-A7A2-55553D5FA969}
