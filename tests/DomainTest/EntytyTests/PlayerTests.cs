@@ -103,5 +103,16 @@ namespace DomainTest.EntityTests
             // Assert
             Assert.Equal(string.Empty, player.Profile.Value);
         }
+
+        [Fact]
+        public void Player_CannotBeCreated_WithNullParameters()
+        {
+            var iidxId = new IidxId("1234-5678");
+            var name = new DJName("Player");
+            var profile = new Profile("Player 1's profile");
+
+            Assert.Throws<ArgumentNullException>(() => new Player(null, name, profile));
+            Assert.Throws<ArgumentNullException>(() => new Player(iidxId, null, profile));
+        }
     }
 }
