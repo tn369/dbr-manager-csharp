@@ -19,5 +19,4 @@ namespace Domain.Entities
         }
         private Music() { }
     }
-
 }

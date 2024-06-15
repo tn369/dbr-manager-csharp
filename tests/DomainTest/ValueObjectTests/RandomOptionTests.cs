@@ -15,23 +15,17 @@ namespace DomainTest.ValueObjectTests
         [InlineData(RandomOptionType.Mirror, "Mirror")]
         public void GetName_ShouldReturnCorrectName(RandomOptionType value, string expectedName)
         {
-            // Arrange
             var randomOption = new RandomOption(value);
-
-            // Act
             var actualName = randomOption.GetName();
 
-            // Assert
             Assert.Equal(expectedName, actualName);
         }
 
         [Fact]
         public void GetName_ShouldThrowArgumentOutOfRangeException_ForUnknownRandomOption()
         {
-            // Arrange
             var invalidValue = (RandomOptionType)999;
 
-            // Act & Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => new RandomOption(invalidValue));
         }
     }

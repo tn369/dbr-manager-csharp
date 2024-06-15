@@ -12,23 +12,17 @@ namespace DomainTest.ValueObjectTests
         [InlineData(GameModeType.Battle, "Battle")]
         public void GetName_ShouldReturnCorrectName(GameModeType mode, string expectedName)
         {
-            // Arrange
             var gameMode = new GameMode(mode);
-
-            // Act
             var actualName = gameMode.GetName();
 
-            // Assert
             Assert.Equal(expectedName, actualName);
         }
 
         [Fact]
         public void GetName_ShouldThrowArgumentOutOfRangeException_ForUnknownGameMode()
         {
-            // Arrange
             var invalidMode = (GameModeType)999;
 
-            // Act & Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => new GameMode(invalidMode));
         }
     }

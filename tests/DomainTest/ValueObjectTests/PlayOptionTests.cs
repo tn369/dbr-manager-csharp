@@ -4,7 +4,6 @@ using Xunit;
 
 namespace DomainTest.ValueObjectTests
 {
-
     public class PlayOptionTests
     {
         [Theory]
@@ -28,13 +27,9 @@ namespace DomainTest.ValueObjectTests
         [Fact]
         public void WithAutoScratch_ShouldReturnNewPlayOptionWithUpdatedAutoScratch()
         {
-            // Arrange
             var playOption = PlayOption.Create(new GameMode(GameModeType.Double), false, true, true);
-
-            // Act
             var newPlayOption = playOption.WithAutoScratch(true);
 
-            // Assert
             Assert.True(newPlayOption.AutoScratch);
             Assert.Equal(playOption.LegacyNote, newPlayOption.LegacyNote);
             Assert.Equal(playOption.Flip, newPlayOption.Flip);
@@ -43,13 +38,9 @@ namespace DomainTest.ValueObjectTests
         [Fact]
         public void WithLegacyNote_ShouldReturnNewPlayOptionWithUpdatedLegacyNote()
         {
-            // Arrange
             var playOption = PlayOption.Create(new GameMode(GameModeType.Double), true, false, true);
-
-            // Act
             var newPlayOption = playOption.WithLegacyNote(true);
 
-            // Assert
             Assert.True(newPlayOption.LegacyNote);
             Assert.Equal(playOption.AutoScratch, newPlayOption.AutoScratch);
             Assert.Equal(playOption.Flip, newPlayOption.Flip);
@@ -58,13 +49,9 @@ namespace DomainTest.ValueObjectTests
         [Fact]
         public void WithFlip_ShouldReturnNewPlayOptionWithUpdatedFlip()
         {
-            // Arrange
             var playOption = PlayOption.Create(new GameMode(GameModeType.Double), true, true, false);
-
-            // Act
             var newPlayOption = playOption.WithFlip(true);
 
-            // Assert
             Assert.True(newPlayOption.Flip);
             Assert.Equal(playOption.AutoScratch, newPlayOption.AutoScratch);
             Assert.Equal(playOption.LegacyNote, newPlayOption.LegacyNote);

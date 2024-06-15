@@ -3,7 +3,6 @@ using Xunit;
 
 namespace DomainTest.ValueObjectTests
 {
-    // Bpm Tests
     public class BpmTests
     {
         [Fact]

@@ -93,10 +93,10 @@ namespace DomainTest.ValueObjectTests
         public void EXScore_Inequality_WorksCorrectly()
         {
             var exScore1 = new EXScore(new Judge(10), new Judge(20)); // Value = 40
-            var exScore3 = new EXScore(new Judge(20), new Judge(5));  // Value = 45
+            var exScore2 = new EXScore(new Judge(20), new Judge(5));  // Value = 45
 
-            Assert.False(exScore1 == exScore3);
-            Assert.True(exScore1 != exScore3);
+            Assert.False(exScore1 == exScore2);
+            Assert.True(exScore1 != exScore2);
         }
 
         [Fact]

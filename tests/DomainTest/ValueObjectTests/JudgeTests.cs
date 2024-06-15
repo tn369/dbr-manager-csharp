@@ -3,7 +3,6 @@ using Xunit;
 
 namespace DomainTest.ValueObjectTests
 {
-    // Judge Tests
     public sealed class JudgeTests
     {
         [Fact]

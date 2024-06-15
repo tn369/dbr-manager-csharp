@@ -3,7 +3,6 @@ using Xunit;
 
 namespace DomainTest.ValueObjectTests
 {
-    // MusicId Tests
     public sealed class MusicIdTests
     {
         [Fact]

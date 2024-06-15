@@ -3,7 +3,6 @@ using Xunit;
 
 namespace DomainTest.ValueObjectTests
 {
-    // IidxId Tests
     public sealed class IidxIdTests
     {
         [Fact]

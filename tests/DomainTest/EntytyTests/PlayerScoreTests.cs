@@ -10,7 +10,6 @@ namespace DomainTest.EntityTests
         [Fact]
         public void CreatePlayerScore_WithValidData_ShouldSucceed()
         {
-            // Arrange
             var playerId = new PlayerId(1);
             var musicId = new MusicId(1);
             var difficulty = new Difficulty(DifficultyType.Another);
@@ -25,11 +24,8 @@ namespace DomainTest.EntityTests
             var score = new Score(exScore, bp, comboBreak);
             var clearLamp = new ClearLamp(ClearLampType.FullCombo);
             var memo = new Memo("Great play!");
-
-            // Act
             var playerScore = new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, score, clearLamp, memo);
 
-            // Assert
             Assert.Equal(playerId, playerScore.PlayerId);
             Assert.Equal(musicId, playerScore.MusicId);
             Assert.Equal(difficulty, playerScore.Difficulty);
@@ -43,7 +39,6 @@ namespace DomainTest.EntityTests
         [Fact]
         public void PlayerScore_ShouldThrowException_AnyArgumentIsNull()
         {
-            // Arrange
             var playerId = new PlayerId(1);
             var musicId = new MusicId(1);
             var difficulty = new Difficulty(DifficultyType.Another);
@@ -59,7 +54,6 @@ namespace DomainTest.EntityTests
             var clearLamp = new ClearLamp(ClearLampType.FullCombo);
             var memo = new Memo("Great play!");
 
-            // Act
             Assert.Throws<ArgumentNullException>(() => new PlayerScore(null, musicId, difficulty, playAt, gameSettings, score, clearLamp, memo));
             Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, null, difficulty, playAt, gameSettings, score, clearLamp, memo));
             Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, null, playAt, gameSettings, score, clearLamp, memo));

@@ -10,5 +10,4 @@
             Value = value;
         }
     }
-
 }

@@ -3,7 +3,6 @@ using Xunit;
 
 namespace DomainTest.ValueObjectTests
 {
-    // Genre Tests
     public sealed class GenreTests
     {
         [Fact]

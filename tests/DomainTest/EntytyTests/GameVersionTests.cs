@@ -1,10 +1,9 @@
-﻿namespace DomainTest.EntityTests
-{
-    using Domain.Entities;
-    using Domain.ValueObjects;
-    using Xunit;
+﻿using Domain.Entities;
+using Domain.ValueObjects;
+using Xunit;
 
-    // GameVersion Tests
+namespace DomainTest.EntityTests
+{
     public class GameVersionTests
     {
         [Fact]

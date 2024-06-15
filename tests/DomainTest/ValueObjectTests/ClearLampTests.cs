@@ -17,23 +17,17 @@ namespace DomainTest.ValueObjectTests
         [InlineData(ClearLampType.Perfect, "Perfect")]
         public void GetDisplayName_ReturnsCorrectDisplayName(ClearLampType clearLampType, string expectedDisplayName)
         {
-            // Arrange
             var clearLamp = new ClearLamp(clearLampType);
-
-            // Act
             var displayName = clearLamp.GetDisplayName();
 
-            // Assert
             Assert.Equal(expectedDisplayName, displayName);
         }
 
         [Fact]
         public void GetName_ShouldThrowArgumentOutOfRangeException_ForUnknownClearLamp()
         {
-            // Arrange
             var invalidValue = (ClearLampType)999;
 
-            // Act & Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => new ClearLamp(invalidValue));
         }
     }

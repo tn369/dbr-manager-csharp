@@ -1,11 +1,10 @@
-﻿namespace DomainTest.EntityTests
-{
-    using Domain.Entities;
-    using Domain.Enums;
-    using Domain.ValueObjects;
-    using Xunit;
+﻿using Domain.Entities;
+using Domain.Enums;
+using Domain.ValueObjects;
+using Xunit;
 
-    // Chart Tests
+namespace DomainTest.EntityTests
+{
     public sealed class ChartTests
     {
         [Fact]
@@ -50,7 +49,6 @@
         [Fact]
         public void Chart_ShouldThrowException_AnyArgumentIsNull()
         {
-            // Arrange
             var musicId = new MusicId(1);
             var difficulty = new Difficulty(DifficultyType.Another);
             var level = new Level(10);
@@ -60,7 +58,6 @@
             var notesCharge = new Notes(20);
             var notesBackspin = new Notes(10);
 
-            // Act & Assert
             Assert.Throws<ArgumentNullException>(() => new Chart(null, difficulty, level, bpm, notesTotal, notesScratch, notesCharge, notesBackspin));
             Assert.Throws<ArgumentNullException>(() => new Chart(musicId, null, level, bpm, notesTotal, notesScratch, notesCharge, notesBackspin));
             Assert.Throws<ArgumentNullException>(() => new Chart(musicId, difficulty, null, bpm, notesTotal, notesScratch, notesCharge, notesBackspin));

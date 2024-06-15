@@ -14,23 +14,17 @@ namespace Domain.Tests.ValueObjects
         [InlineData(DifficultyType.Leggendaria, "LEGGENDARIA")]
         public void GetDisplayName_ShouldReturnCorrectDisplayName(DifficultyType difficultyType, string expectedDisplayName)
         {
-            // Arrange
             var difficulty = new Difficulty(difficultyType);
-
-            // Act
             var displayName = difficulty.GetDisplayName();
 
-            // Assert
             Assert.Equal(expectedDisplayName, displayName);
         }
 
         [Fact]
         public void GetDisplayName_ShouldThrowArgumentOutOfRangeException_ForInvalidDifficultyType()
         {
-            // Arrange
             var invalidDifficultyType = (DifficultyType)(-1);
 
-            // Act & Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => new Difficulty(invalidDifficultyType));
         }
     }
