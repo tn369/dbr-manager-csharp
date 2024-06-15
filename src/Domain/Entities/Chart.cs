@@ -1,10 +1,12 @@
 ﻿using Domain.ValueObjects;
+using Domain.Enums;
 
 namespace Domain.Entities
 {
     public sealed class Chart
     {
         public MusicId MusicId { get; private set; }
+        public GameMode GameMode { get; private set; }
         public Difficulty Difficulty { get; private set; }
         public Level Level { get; private set; }
         public Bpm Bpm { get; private set; }
@@ -13,16 +15,17 @@ namespace Domain.Entities
         public Notes NotesCharge { get; private set; }
         public Notes NotesBackspin { get; private set; }
 
-        public Chart(MusicId musicId, Difficulty difficulty, Level level, Bpm bpm, Notes notesTotal, Notes notesScratch, Notes notesCharge, Notes notesBackspin)
+        public Chart(MusicId musicId, GameMode gameMode, Difficulty difficulty, Level level, Bpm bpm, Notes notesTotal, Notes notesScratch, Notes notesCharge, Notes notesBackspin)
         {
+            ArgumentNullException.ThrowIfNull(musicId);
+            ArgumentNullException.ThrowIfNull(gameMode);
+            ArgumentNullException.ThrowIfNull(difficulty);
+            ArgumentNullException.ThrowIfNull(level);
+            ArgumentNullException.ThrowIfNull(bpm);
             ArgumentNullException.ThrowIfNull(notesTotal);
             ArgumentNullException.ThrowIfNull(notesScratch);
             ArgumentNullException.ThrowIfNull(notesCharge);
             ArgumentNullException.ThrowIfNull(notesBackspin);
-            ArgumentNullException.ThrowIfNull(musicId);
-            ArgumentNullException.ThrowIfNull(difficulty);
-            ArgumentNullException.ThrowIfNull(level);
-            ArgumentNullException.ThrowIfNull(bpm);
 
             if (Notes.Sum(notesScratch, notesCharge, notesBackspin) > notesTotal)
             {
@@ -30,6 +33,7 @@ namespace Domain.Entities
             }
 
             MusicId = musicId;
+            GameMode = gameMode;
             Difficulty = difficulty;
             Level = level;
             Bpm = bpm;
@@ -38,6 +42,27 @@ namespace Domain.Entities
             NotesCharge = notesCharge;
             NotesBackspin = notesBackspin;
         }
+
         private Chart() { }
+
+        public Chart ToBattleChart()
+        {
+            if (!GameMode.IsSingle())
+            {
+                throw new ArgumentException("Battle chart can only be created from a single chart.");
+            }
+
+            return new Chart(
+                MusicId,
+                new GameMode(GameModeType.Battle),
+                Difficulty,
+                Level,
+                Bpm,
+                NotesTotal.BattleValue(),
+                NotesScratch.BattleValue(),
+                NotesCharge.BattleValue(),
+                NotesBackspin.BattleValue()
+            );
+        }
     }
 }

@@ -58,5 +58,9 @@
             }
             return new Notes(total);
         }
+        public Notes BattleValue()
+        {
+            return new Notes((ushort)(Value * 2));
+        }
     }
 }

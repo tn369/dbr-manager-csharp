@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Enums;
 using Domain.ValueObjects;
+using Domain.ValueObjects.Options;
 using Xunit;
 
 namespace DomainTest.EntityTests
@@ -15,22 +16,21 @@ namespace DomainTest.EntityTests
             var difficulty = new Difficulty(DifficultyType.Another);
             var playAt = new PlayAt(DateTime.UtcNow);
             var gameMode = new GameMode(GameModeType.Double);
-            var commonOption = PlayOption.Create(gameMode, autoScratch: true, legacyNote: true, flip: false);
-            var playerOption = new SideOption(new RandomOption(RandomOptionType.Normal));
-            var gameSettings = new PlaySettings(gameMode, commonOption, playerOption);
+            var commonOption = new DoublePlayOption(autoScratch: true, legacyNote: true, flip: true, new RandomOption(RandomOptionType.Normal), new RandomOption(RandomOptionType.Normal));
             var exScore = new EXScore(new Judge(100), new Judge(50));
             var bp = new Judge(10);
             var comboBreak = new Judge(5);
             var score = new Score(exScore, bp, comboBreak);
             var clearLamp = new ClearLamp(ClearLampType.FullCombo);
             var memo = new Memo("Great play!");
-            var playerScore = new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, score, clearLamp, memo);
+            var playerScore = new PlayerScore(playerId, gameMode, musicId, difficulty, commonOption, playAt, score, clearLamp, memo);
 
             Assert.Equal(playerId, playerScore.PlayerId);
             Assert.Equal(musicId, playerScore.MusicId);
             Assert.Equal(difficulty, playerScore.Difficulty);
             Assert.Equal(playAt, playerScore.PlayAt);
-            Assert.Equal(gameSettings, playerScore.PlaySettings);
+            Assert.Equal(gameMode, playerScore.GameMode);
+            Assert.Equal(commonOption, playerScore.PlayOption);
             Assert.Equal(score, playerScore.Score);
             Assert.Equal(clearLamp, playerScore.ClearLamp);
             Assert.Equal(memo, playerScore.Memo);
@@ -44,9 +44,7 @@ namespace DomainTest.EntityTests
             var difficulty = new Difficulty(DifficultyType.Another);
             var playAt = new PlayAt(DateTime.UtcNow);
             var gameMode = new GameMode(GameModeType.Double);
-            var commonOption = PlayOption.Create(gameMode, autoScratch: true, legacyNote: true, flip: false);
-            var playerOption = new SideOption(new RandomOption(RandomOptionType.Normal));
-            var gameSettings = new PlaySettings(gameMode, commonOption, playerOption);
+            var commonOption = new DoublePlayOption(autoScratch: true, legacyNote: true, flip: true, new RandomOption(RandomOptionType.Normal), new RandomOption(RandomOptionType.Normal));
             var exScore = new EXScore(new Judge(100), new Judge(50));
             var bp = new Judge(10);
             var comboBreak = new Judge(5);
@@ -54,14 +52,15 @@ namespace DomainTest.EntityTests
             var clearLamp = new ClearLamp(ClearLampType.FullCombo);
             var memo = new Memo("Great play!");
 
-            Assert.Throws<ArgumentNullException>(() => new PlayerScore(null, musicId, difficulty, playAt, gameSettings, score, clearLamp, memo));
-            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, null, difficulty, playAt, gameSettings, score, clearLamp, memo));
-            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, null, playAt, gameSettings, score, clearLamp, memo));
-            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, difficulty, null, gameSettings, score, clearLamp, memo));
-            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, difficulty, playAt, null, score, clearLamp, memo));
-            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, null, clearLamp, memo));
-            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, score, null, memo));
-            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, musicId, difficulty, playAt, gameSettings, score, clearLamp, null));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(null, gameMode, musicId, difficulty, commonOption, playAt, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, null, musicId, difficulty, commonOption, playAt, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, gameMode, null, difficulty, commonOption, playAt, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, gameMode, musicId, null, commonOption, playAt, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, gameMode, musicId, difficulty, null, playAt, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, gameMode, musicId, difficulty, commonOption, null, score, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, gameMode, musicId, difficulty, commonOption, playAt, null, clearLamp, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, gameMode, musicId, difficulty, commonOption, playAt, score, null, memo));
+            Assert.Throws<ArgumentNullException>(() => new PlayerScore(playerId, gameMode, musicId, difficulty, commonOption, playAt, score, clearLamp, null));
         }
     }
 }

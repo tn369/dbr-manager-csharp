@@ -1,5 +1,5 @@
 ﻿using Domain.Enums;
-using Domain.ValueObjects;
+using Domain.ValueObjects.Options;
 using Xunit;
 
 namespace DomainTest.ValueObjectTests

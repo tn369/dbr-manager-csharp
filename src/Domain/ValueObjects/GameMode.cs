@@ -21,5 +21,9 @@ namespace Domain.ValueObjects
             GameModeType.Battle => "Battle",
             _ => throw new ArgumentOutOfRangeException(nameof(Value), $"Unknown Game Mode: {Value}")
         };
+
+        public bool IsSingle() => Value == GameModeType.Single;
+        public bool IsDouble() => Value == GameModeType.Double;
+        public bool IsBattle() => Value == GameModeType.Battle;
     }
 }
