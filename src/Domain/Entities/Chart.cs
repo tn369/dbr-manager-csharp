@@ -1,5 +1,5 @@
-﻿using Domain.ValueObjects;
-using Domain.Enums;
+﻿using Domain.Enums;
+using Domain.ValueObjects;
 
 namespace Domain.Entities
 {
