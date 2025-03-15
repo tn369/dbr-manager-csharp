@@ -5,8 +5,14 @@ using Xunit;
 
 namespace DomainTest.EntityTests
 {
+    /// <summary>
+    /// <see cref="Chart"/> クラスのテストを行うクラス
+    /// </summary>
     public sealed class ChartTests
     {
+        /// <summary>
+        /// 有効なパラメータで <see cref="Chart"/> クラスのインスタンスを作成できることを確認します
+        /// </summary>
         [Fact]
         public void Chart_CanBeCreated_WithValidParameters()
         {
@@ -33,6 +39,9 @@ namespace DomainTest.EntityTests
             Assert.Equal(notesBackspin, chart.NotesBackspin);
         }
 
+        /// <summary>
+        /// 無効なノーツ数で <see cref="Chart"/> クラスのインスタンスを作成しようとすると <see cref="ArgumentException"/> がスローされることを確認します
+        /// </summary>
         [Fact]
         public void Chart_InvalidNotes_ThrowsArgumentException()
         {
@@ -49,6 +58,9 @@ namespace DomainTest.EntityTests
             Assert.Throws<ArgumentException>(() => new Chart(musicId, gameMode, difficulty, level, bpm, notesTotal, notesScratch, notesCharge, notesBackspin));
         }
 
+        /// <summary>
+        /// 任意の引数がnullの場合に <see cref="ArgumentNullException"/> がスローされることを確認します
+        /// </summary>
         [Fact]
         public void Chart_ShouldThrowException_AnyArgumentIsNull()
         {
@@ -73,6 +85,9 @@ namespace DomainTest.EntityTests
             Assert.Throws<ArgumentNullException>(() => new Chart(musicId, gameMode, difficulty, level, bpm, notesTotal, notesScratch, notesCharge, null));
         }
 
+        /// <summary>
+        /// シングル譜面をバトル譜面に変換できることを確認します
+        /// </summary>
         [Fact]
         public void ToBattleChart_ShouldConvertSingleChartToBattleChart()
         {
@@ -99,6 +114,9 @@ namespace DomainTest.EntityTests
             Assert.Equal(notesBackspin.BattleValue(), battleChart.NotesBackspin);
         }
 
+        /// <summary>
+        /// シングル譜面でない場合に <see cref="Chart.ToBattleChart"/> メソッドが <see cref="ArgumentException"/> をスローすることを確認します
+        /// </summary>
         [Fact]
         public void ToBattleChart_ShouldThrowException_WhenNotSingleChart()
         {
