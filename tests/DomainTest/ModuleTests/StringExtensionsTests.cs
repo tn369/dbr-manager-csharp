@@ -3,7 +3,7 @@ using Xunit;
 
 namespace DomainTest.ModuleTests
 {
-    public class StringExtentionsTests
+    public class StringExtensionsTests
     {
         [Theory]
         [InlineData("１２３４５６７８９０", "1234567890")]
