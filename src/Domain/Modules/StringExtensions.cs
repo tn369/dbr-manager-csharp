@@ -2,7 +2,7 @@
 
 namespace Domain.Modules
 {
-    static internal partial class StringExtentions
+    static internal partial class StringExtensions
     {
         /// <summary>
         /// 全角数字を半角数字に変換する。
