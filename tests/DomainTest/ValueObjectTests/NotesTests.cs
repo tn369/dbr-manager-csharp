@@ -121,5 +121,15 @@ namespace DomainTest.ValueObjectTests
             var result = Notes.Sum();
             Assert.Equal(0, result.Value);
         }
+
+        [Fact]
+        public void Notes_BattleValue_ShouldReturnDoubleValue()
+        {
+            var notes = new Notes(200);
+
+            var result = notes.BattleValue();
+
+            Assert.Equal(400, result.Value);
+        }
     }
 }
