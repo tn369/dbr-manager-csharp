@@ -11,47 +11,47 @@ namespace Domain.Entities
         /// <summary>
         /// 音楽ID
         /// </summary>
-        public MusicId MusicId { get; private set; }
+        public MusicId MusicId { get; private set; } = null!;
 
         /// <summary>
         /// ゲームモード
         /// </summary>
-        public GameMode GameMode { get; private set; }
+        public GameMode GameMode { get; private set; } = null!;
 
         /// <summary>
         /// 難易度レベル
         /// </summary>
-        public Difficulty Difficulty { get; private set; }
+        public Difficulty Difficulty { get; private set; } = null!;
 
         /// <summary>
         /// レベル
         /// </summary>
-        public Level Level { get; private set; }
+        public Level Level { get; private set; } = null!;
 
         /// <summary>
         /// BPM（1分あたりのビート数）
         /// </summary>
-        public Bpm Bpm { get; private set; }
+        public Bpm Bpm { get; private set; } = null!;
 
         /// <summary>
         /// 総ノーツ数
         /// </summary>
-        public Notes NotesTotal { get; private set; }
+        public Notes NotesTotal { get; private set; } = null!;
 
         /// <summary>
         /// スクラッチノーツ数
         /// </summary>
-        public Notes NotesScratch { get; private set; }
+        public Notes NotesScratch { get; private set; } = null!;
 
         /// <summary>
         /// チャージノーツ数
         /// </summary>
-        public Notes NotesCharge { get; private set; }
+        public Notes NotesCharge { get; private set; } = null!;
 
         /// <summary>
         /// バックスピンノーツ数
         /// </summary>
-        public Notes NotesBackspin { get; private set; }
+        public Notes NotesBackspin { get; private set; } = null!;
 
         /// <summary>
         /// <see cref="Chart"/> クラスの新しいインスタンスを初期化します
