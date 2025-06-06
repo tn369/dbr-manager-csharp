@@ -5,15 +5,15 @@ namespace Domain.Entities
 {
     public sealed class PlayerScore
     {
-        public PlayerId PlayerId { get; private set; }
-        public GameMode GameMode { get; private set; }
-        public MusicId MusicId { get; private set; }
-        public Difficulty Difficulty { get; private set; }
-        public PlayOptionBase PlayOption { get; private set; }
-        public PlayAt PlayAt { get; private set; }
-        public Score Score { get; private set; }
-        public ClearLamp ClearLamp { get; private set; }
-        public Memo Memo { get; private set; }
+        public PlayerId PlayerId { get; private set; } = null!;
+        public GameMode GameMode { get; private set; } = null!;
+        public MusicId MusicId { get; private set; } = null!;
+        public Difficulty Difficulty { get; private set; } = null!;
+        public PlayOptionBase PlayOption { get; private set; } = null!;
+        public PlayAt PlayAt { get; private set; } = null!;
+        public Score Score { get; private set; } = null!;
+        public ClearLamp ClearLamp { get; private set; } = null!;
+        public Memo Memo { get; private set; } = null!;
 
         public PlayerScore(PlayerId playerId, GameMode gameMode, MusicId musicId, Difficulty difficulty, PlayOptionBase playOption, PlayAt playAt, Score score, ClearLamp clearLamp, Memo memo)
         {

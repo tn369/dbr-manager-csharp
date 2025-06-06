@@ -9,9 +9,9 @@ namespace Domain.Entities
         public IReadOnlyCollection<Player> Rivals => _rivals.AsReadOnly();
 
         public PlayerId? PlayerId { get; private set; }
-        public IidxId IidxId { get; private set; }
-        public DJName Name { get; private set; }
-        public Profile Profile { get; private set; }
+        public IidxId IidxId { get; private set; } = null!;
+        public DJName Name { get; private set; } = null!;
+        public Profile Profile { get; private set; } = null!;
 
         public Player(IidxId iidxId, DJName name, Profile? profile)
         {
