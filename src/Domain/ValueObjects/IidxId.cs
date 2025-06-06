@@ -17,7 +17,7 @@ namespace Domain.ValueObjects
         public IidxId(string value)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(value, nameof(value));
-            var regex = truePattern();
+            var regex = TruePattern();
             if (!regex.IsMatch(value))
             {
                 throw new ArgumentException("Invalid IidxId format.");
@@ -28,6 +28,6 @@ namespace Domain.ValueObjects
         }
 
         [GeneratedRegex("^\\s*(\\d{4})-?(\\d{4})\\s*$")]
-        private static partial Regex truePattern();
+        private static partial Regex TruePattern();
     }
 }
