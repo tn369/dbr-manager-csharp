@@ -23,8 +23,8 @@ namespace Domain.ValueObjects
                 throw new ArgumentException("Invalid IidxId format.");
             }
 
-            var formatedValue = regex.Replace(value, "$1-$2").ConvertFullToHalfNumbers();
-            Value = formatedValue;
+            var formattedValue = regex.Replace(value, "$1-$2").ConvertFullToHalfNumbers();
+            Value = formattedValue;
         }
 
         [GeneratedRegex("^\\s*(\\d{4})-?(\\d{4})\\s*$")]
