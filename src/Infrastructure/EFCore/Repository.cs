@@ -29,7 +29,7 @@ namespace Infrastructure.Repositories
             await _entities.AddAsync(entity);
         }
 
-        public async Task UpdateAsync(T entity)
+        public void Update(T entity)
         {
             _entities.Update(entity);
         }
