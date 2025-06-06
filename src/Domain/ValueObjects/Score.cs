@@ -13,5 +13,5 @@
             this.Bp = Bp;
             this.ComboBreak = ComboBreak;
         }
-    };
+    }
 }
