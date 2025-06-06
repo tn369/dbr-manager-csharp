@@ -18,10 +18,10 @@ namespace Domain.Entities
         public PlayerScore(PlayerId playerId, GameMode gameMode, MusicId musicId, Difficulty difficulty, PlayOptionBase playOption, PlayAt playAt, Score score, ClearLamp clearLamp, Memo memo)
         {
             PlayerId = playerId ?? throw new ArgumentNullException(nameof(playerId));
-            GameMode = gameMode ?? throw new ArgumentNullException(nameof(gameMode)); ;
+            GameMode = gameMode ?? throw new ArgumentNullException(nameof(gameMode));
             MusicId = musicId ?? throw new ArgumentNullException(nameof(musicId));
             Difficulty = difficulty ?? throw new ArgumentNullException(nameof(difficulty));
-            PlayOption = playOption ?? throw new ArgumentNullException(nameof(playOption)); ;
+            PlayOption = playOption ?? throw new ArgumentNullException(nameof(playOption));
             PlayAt = playAt ?? throw new ArgumentNullException(nameof(playAt));
             Score = score ?? throw new ArgumentNullException(nameof(score));
             ClearLamp = clearLamp ?? throw new ArgumentNullException(nameof(clearLamp));
