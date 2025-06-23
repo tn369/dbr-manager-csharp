@@ -8,7 +8,7 @@ namespace DomainTest.ValueObjectTests
         [Fact]
         public void Constructor_ValidValue_ShouldSetPlayerId()
         {
-            var value = 1;
+            var value = "1";
             var playerId = new PlayerId(value);
             Assert.Equal(value, playerId.Value);
         }
@@ -16,7 +16,7 @@ namespace DomainTest.ValueObjectTests
         [Fact]
         public void Constructor_InvalidValue_ShouldThrowArgumentException()
         {
-            Assert.Throws<ArgumentException>(() => new PlayerId(0));
+            Assert.Throws<ArgumentException>(() => new PlayerId(""));
         }
     }
 }

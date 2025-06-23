@@ -12,12 +12,12 @@ namespace DomainTest.EntityTests
             var iidxId1 = new IidxId("1234-5678");
             var name1 = new DJName("Player 1");
             var profile1 = new Profile("Player 1's profile");
-            var player1 = new Player(iidxId1, name1, profile1);
+            var player1 = new Player(name1, profile1);
 
             var iidxId2 = new IidxId("8765-4321");
             var name2 = new DJName("Player 2");
             var profile2 = new Profile("Player 2's profile");
-            var player2 = new Player(iidxId2, name2, profile2);
+            var player2 = new Player(name2, profile2);
 
             player1.AddRival(player2);
 
@@ -30,12 +30,12 @@ namespace DomainTest.EntityTests
             var iidxId1 = new IidxId("1234-5678");
             var name1 = new DJName("Player 1");
             var profile1 = new Profile("Player 1's profile");
-            var player1 = new Player(iidxId1, name1, profile1);
+            var player1 = new Player(name1, profile1);
 
             var iidxId2 = new IidxId("8765-4321");
             var name2 = new DJName("Player 2");
             var profile2 = new Profile("Player 2's profile");
-            var player2 = new Player(iidxId2, name2, profile2);
+            var player2 = new Player(name2, profile2);
 
             player1.AddRival(player2);
             player1.AddRival(player2);
@@ -49,12 +49,12 @@ namespace DomainTest.EntityTests
             var iidxId1 = new IidxId("1234-5678");
             var name1 = new DJName("Player 1");
             var profile1 = new Profile("Player 1's profile");
-            var player1 = new Player(iidxId1, name1, profile1);
+            var player1 = new Player(name1, profile1);
 
             var iidxId2 = new IidxId("8765-4321");
             var name2 = new DJName("Player 2");
             var profile2 = new Profile("Player 2's profile");
-            var player2 = new Player(iidxId2, name2, profile2);
+            var player2 = new Player(name2, profile2);
 
             player1.AddRival(player2);
             player1.RemoveRival(player2);
@@ -68,7 +68,7 @@ namespace DomainTest.EntityTests
             var iidxId1 = new IidxId("1234-5678");
             var name1 = new DJName("Player 1");
             var profile1 = new Profile("Player 1's profile");
-            var player1 = new Player(iidxId1, name1, profile1);
+            var player1 = new Player(name1, profile1);
 
             player1.AddRival(player1);
 
@@ -80,7 +80,7 @@ namespace DomainTest.EntityTests
         {
             var iidxId = new IidxId("1234-5678");
             var name = new DJName("Player");
-            var player = new Player(iidxId, name, null);
+            var player = new Player(name, null);
 
             Assert.Equal(string.Empty, player.Profile.Value);
         }
@@ -92,8 +92,8 @@ namespace DomainTest.EntityTests
             var name = new DJName("Player");
             var profile = new Profile("Player 1's profile");
 
-            Assert.Throws<ArgumentNullException>(() => new Player(null, name, profile));
-            Assert.Throws<ArgumentNullException>(() => new Player(iidxId, null, profile));
+            Assert.Throws<ArgumentNullException>(() => new Player(null, profile));
+            Assert.Throws<ArgumentNullException>(() => new Player(name, null));
         }
     }
 }
