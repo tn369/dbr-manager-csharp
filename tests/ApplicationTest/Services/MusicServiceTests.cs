@@ -4,6 +4,7 @@ using Domain.Repositories;
 using Domain.ValueObjects;
 using FluentAssertions;
 using Moq;
+using Xunit;
 
 namespace ApplicationTest.Services;
 
@@ -28,7 +29,7 @@ public class MusicServiceTests
             new MusicTitle("Test Song"), 
             new Artist("Test Artist"), 
             new Genre("Test Genre"), 
-            new Bpm(140));
+            new Bpm((ushort)140));
         
         _musicRepositoryMock.Setup(x => x.GetByIdAsync(musicId))
             .ReturnsAsync(expectedMusic);
@@ -57,8 +58,8 @@ public class MusicServiceTests
     {
         var musicList = new List<Music>
         {
-            new Music(new MusicTitle("Song1"), new Artist("Artist1"), new Genre("Genre1"), new Bpm(120)),
-            new Music(new MusicTitle("Song2"), new Artist("Artist2"), new Genre("Genre2"), new Bpm(140))
+            new Music(new MusicTitle("Song1"), new Artist("Artist1"), new Genre("Genre1"), new Bpm((ushort)120)),
+            new Music(new MusicTitle("Song2"), new Artist("Artist2"), new Genre("Genre2"), new Bpm((ushort)140))
         };
         
         _musicRepositoryMock.Setup(x => x.GetAllAsync())
@@ -76,7 +77,7 @@ public class MusicServiceTests
         var title = new MusicTitle("New Song");
         var artist = new Artist("New Artist");
         var genre = new Genre("New Genre");
-        var bpm = new Bpm(160);
+        var bpm = new Bpm((ushort)160);
 
         _musicRepositoryMock.Setup(x => x.AddAsync(It.IsAny<Music>()))
             .Returns(Task.CompletedTask);
@@ -102,7 +103,7 @@ public class MusicServiceTests
             new MusicTitle("Test Song"), 
             new Artist("Test Artist"), 
             new Genre("Test Genre"), 
-            new Bpm(140));
+            new Bpm((ushort)140));
 
         _musicRepositoryMock.Setup(x => x.Update(music));
         _unitOfWorkMock.Setup(x => x.SaveChangesAsync())
@@ -123,7 +124,7 @@ public class MusicServiceTests
             new MusicTitle("Test Song"), 
             new Artist("Test Artist"), 
             new Genre("Test Genre"), 
-            new Bpm(140));
+            new Bpm((ushort)140));
 
         _musicRepositoryMock.Setup(x => x.GetByIdAsync(musicId))
             .ReturnsAsync(music);

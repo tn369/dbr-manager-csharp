@@ -4,6 +4,7 @@ using Domain.Repositories;
 using Domain.ValueObjects;
 using FluentAssertions;
 using Moq;
+using Xunit;
 
 namespace ApplicationTest.Services;
 

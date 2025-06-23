@@ -3,5 +3,5 @@ using Domain.ValueObjects;
 
 namespace Domain.Repositories
 {
-    public interface IChartRepository : IRepository<Chart, MusicId> { }
+    public interface IChartRepository : IRepository<Chart, int> { }
 }

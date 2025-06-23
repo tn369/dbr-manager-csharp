@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using GameVersion = Domain.Entities.GameVersion;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.EFCore
 {
     public class ApplicationDbContext : DbContext
     {

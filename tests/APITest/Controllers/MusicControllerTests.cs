@@ -5,6 +5,7 @@ using Domain.ValueObjects;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
+using Xunit;
 
 namespace APITest.Controllers;
 
@@ -24,8 +25,8 @@ public class MusicControllerTests
     {
         var musicList = new List<Music>
         {
-            new Music(new MusicTitle("Song1"), new Artist("Artist1"), new Genre("Genre1"), new Bpm(120)),
-            new Music(new MusicTitle("Song2"), new Artist("Artist2"), new Genre("Genre2"), new Bpm(140))
+            new Music(new MusicTitle("Song1"), new Artist("Artist1"), new Genre("Genre1"), new Bpm((ushort)120)),
+            new Music(new MusicTitle("Song2"), new Artist("Artist2"), new Genre("Genre2"), new Bpm((ushort)140))
         };
 
         _musicServiceMock.Setup(x => x.GetAllMusicAsync())
@@ -46,7 +47,7 @@ public class MusicControllerTests
             new MusicTitle("Test Song"), 
             new Artist("Test Artist"), 
             new Genre("Test Genre"), 
-            new Bpm(140));
+            new Bpm((ushort)140));
 
         _musicServiceMock.Setup(x => x.GetMusicByIdAsync(It.Is<MusicId>(m => m.Value == musicId)))
             .ReturnsAsync(music);
@@ -79,13 +80,13 @@ public class MusicControllerTests
             new MusicTitle(request.Title),
             new Artist(request.Artist),
             new Genre(request.Genre),
-            new Bpm(request.Bpm));
+            new Bpm((ushort)request.Bpm));
 
         _musicServiceMock.Setup(x => x.CreateMusicAsync(
                 It.Is<MusicTitle>(t => t.Value == request.Title),
                 It.Is<Artist>(a => a.Value == request.Artist),
                 It.Is<Genre>(g => g.Value == request.Genre),
-                It.Is<Bpm>(b => b.Value == request.Bpm)))
+                It.Is<Bpm>(b => b.Value == (ushort)request.Bpm)))
             .ReturnsAsync(createdMusic);
 
         var result = await _controller.CreateMusic(request);
@@ -105,7 +106,7 @@ public class MusicControllerTests
             new MusicTitle("Old Title"),
             new Artist("Old Artist"),
             new Genre("Old Genre"),
-            new Bpm(120));
+            new Bpm((ushort)120));
 
         _musicServiceMock.Setup(x => x.GetMusicByIdAsync(It.Is<MusicId>(m => m.Value == musicId)))
             .ReturnsAsync(existingMusic);

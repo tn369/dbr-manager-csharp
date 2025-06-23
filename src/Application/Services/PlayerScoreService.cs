@@ -43,7 +43,7 @@ public class PlayerScoreService : IPlayerScoreService
         if (chart == null)
             throw new ArgumentException("Chart not found", nameof(chartId));
 
-        var playerScore = new PlayerScore(player, chart, score, exScore, judge, clearLamp, playAt);
+        var playerScore = new PlayerScore(playerId, chart.GameMode, chart.MusicId, chart.Difficulty, null, playAt, score, clearLamp, null);
         await _playerScoreRepository.AddAsync(playerScore);
         await _unitOfWork.SaveChangesAsync();
         return playerScore;

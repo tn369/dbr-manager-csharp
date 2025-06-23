@@ -2,7 +2,7 @@
 using Domain.ValueObjects;
 using GameVersion = Domain.Entities.GameVersion;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.EFCore
 {
     public class GameVersionRepository : Repository<GameVersion, GameVersionId>, IGameVersionRepository
     {

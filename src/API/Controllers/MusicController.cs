@@ -54,7 +54,7 @@ public class MusicController : ControllerBase
         var title = new MusicTitle(request.Title);
         var artist = new Artist(request.Artist);
         var genre = new Genre(request.Genre);
-        var bpm = new Bpm(request.Bpm);
+        var bpm = new Bpm((ushort)request.Bpm);
         
         var music = await _musicService.CreateMusicAsync(title, artist, genre, bpm);
         
@@ -87,7 +87,7 @@ public class MusicController : ControllerBase
             music.ChangeGenre(new Genre(request.Genre));
         
         if (request.Bpm.HasValue)
-            music.ChangeBpm(new Bpm(request.Bpm.Value));
+            music.ChangeBpm(new Bpm((ushort)request.Bpm.Value));
 
         await _musicService.UpdateMusicAsync(music);
         
