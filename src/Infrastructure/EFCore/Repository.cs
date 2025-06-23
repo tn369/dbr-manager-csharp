@@ -1,7 +1,7 @@
 ﻿using Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.EFCore
 {
     public class Repository<T, TId> : IRepository<T, TId> where T : class
     {
@@ -19,7 +19,7 @@ namespace Infrastructure.Repositories
             return await _entities.ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(TId id)
+        public async Task<T?> GetByIdAsync(TId id)
         {
             return await _entities.FindAsync(id);
         }
@@ -32,6 +32,11 @@ namespace Infrastructure.Repositories
         public void Update(T entity)
         {
             _entities.Update(entity);
+        }
+
+        public void Delete(T entity)
+        {
+            _entities.Remove(entity);
         }
 
         public async Task DeleteAsync(TId id)

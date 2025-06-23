@@ -2,11 +2,11 @@
 {
     public sealed record PlayerId
     {
-        public int Value { get; }
+        public string Value { get; }
 
-        public PlayerId(int value)
+        public PlayerId(string value)
         {
-            if (value <= 0) throw new ArgumentException("PlayerId must be greater than 0.");
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("PlayerId must not be null or empty.");
             Value = value;
         }
     }

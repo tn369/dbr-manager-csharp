@@ -20,7 +20,7 @@ namespace DomainTest.EntityTests
             var gameMode = new GameMode(GameModeType.Double);
             var difficulty = new Difficulty(DifficultyType.Another);
             var level = new Level(10);
-            var bpm = new Bpm(150);
+            var bpm = new Bpm((ushort)150);
             var notesTotal = new Notes(1000);
             var notesScratch = new Notes(50);
             var notesCharge = new Notes(20);
@@ -49,7 +49,7 @@ namespace DomainTest.EntityTests
             var gameMode = new GameMode(GameModeType.Double);
             var difficulty = new Difficulty(DifficultyType.Another);
             var level = new Level(5);
-            var bpm = new Bpm(120);
+            var bpm = new Bpm((ushort)120);
             var notesTotal = new Notes(30);
             var notesScratch = new Notes(10);
             var notesCharge = new Notes(20);
@@ -68,7 +68,7 @@ namespace DomainTest.EntityTests
             var gameMode = new GameMode(GameModeType.Double);
             var difficulty = new Difficulty(DifficultyType.Another);
             var level = new Level(10);
-            var bpm = new Bpm(150);
+            var bpm = new Bpm((ushort)150);
             var notesTotal = new Notes(1000);
             var notesScratch = new Notes(50);
             var notesCharge = new Notes(20);
@@ -95,7 +95,7 @@ namespace DomainTest.EntityTests
             var gameMode = new GameMode(GameModeType.Single);
             var difficulty = new Difficulty(DifficultyType.Another);
             var level = new Level(10);
-            var bpm = new Bpm(150);
+            var bpm = new Bpm((ushort)150);
             var notesTotal = new Notes(1000);
             var notesScratch = new Notes(50);
             var notesCharge = new Notes(20);
@@ -124,7 +124,7 @@ namespace DomainTest.EntityTests
             var gameMode = new GameMode(GameModeType.Double);
             var difficulty = new Difficulty(DifficultyType.Another);
             var level = new Level(10);
-            var bpm = new Bpm(150);
+            var bpm = new Bpm((ushort)150);
             var notesTotal = new Notes(1000);
             var notesScratch = new Notes(50);
             var notesCharge = new Notes(20);

@@ -9,39 +9,39 @@ namespace DomainTest.EntityTests
         [Fact]
         public void Music_CanBeCreated_WithValidParameters()
         {
-            var versionId = new GameVersionId(1);
             var title = new MusicTitle("Title");
-            var genre = new Genre("Genre");
             var artist = new Artist("Artist");
+            var genre = new Genre("Genre");
+            var bpm = new Bpm((ushort)140);
 
-            var music = new Music(versionId, title, genre, artist);
+            var music = new Music(title, artist, genre, bpm);
 
-            Assert.Equal(versionId, music.GameVersionId);
             Assert.Equal(title, music.Title);
+            Assert.Equal(artist, music.Artist);
             Assert.Equal(genre, music.Genre);
             Assert.Equal(artist, music.Artist);
         }
 
         [Fact]
-        public void MusicId_IsNull_WhenCreated()
+        public void MusicId_IsNotNull_WhenCreated()
         {
-            var versionId = new GameVersionId(1);
             var title = new MusicTitle("Title");
-            var genre = new Genre("Genre");
             var artist = new Artist("Artist");
+            var genre = new Genre("Genre");
+            var bpm = new Bpm((ushort)140);
 
-            var music = new Music(versionId, title, genre, artist);
+            var music = new Music(title, artist, genre, bpm);
 
-            Assert.Null(music.MusicId);
+            Assert.NotNull(music.Id);
         }
 
         [Fact]
         public void Music_CannotBeCreated_WithNullParameters()
         {
-            Assert.Throws<ArgumentNullException>(() => new Music(null, new MusicTitle("Title"), new Genre("Genre"), new Artist("Artist")));
-            Assert.Throws<ArgumentNullException>(() => new Music(new GameVersionId(1), null, new Genre("Genre"), new Artist("Artist")));
-            Assert.Throws<ArgumentNullException>(() => new Music(new GameVersionId(1), new MusicTitle("Title"), null, new Artist("Artist")));
-            Assert.Throws<ArgumentNullException>(() => new Music(new GameVersionId(1), new MusicTitle("Title"), new Genre("Genre"), null));
+            Assert.Throws<ArgumentNullException>(() => new Music(null!, new Artist("Artist"), new Genre("Genre"), new Bpm((ushort)140)));
+            Assert.Throws<ArgumentNullException>(() => new Music(new MusicTitle("Title"), null!, new Genre("Genre"), new Bpm((ushort)140)));
+            Assert.Throws<ArgumentNullException>(() => new Music(new MusicTitle("Title"), new Artist("Artist"), null!, new Bpm((ushort)140)));
+            Assert.Throws<ArgumentNullException>(() => new Music(new MusicTitle("Title"), new Artist("Artist"), new Genre("Genre"), null!));
         }
     }
 }

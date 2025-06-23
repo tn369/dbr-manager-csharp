@@ -11,7 +11,7 @@ namespace DomainTest.EntityTests
         [Fact]
         public void CreatePlayerScore_WithValidData_ShouldSucceed()
         {
-            var playerId = new PlayerId(1);
+            var playerId = new PlayerId("1");
             var musicId = new MusicId(1);
             var difficulty = new Difficulty(DifficultyType.Another);
             var playAt = new PlayAt(DateTime.UtcNow);
@@ -39,7 +39,7 @@ namespace DomainTest.EntityTests
         [Fact]
         public void PlayerScore_ShouldThrowException_AnyArgumentIsNull()
         {
-            var playerId = new PlayerId(1);
+            var playerId = new PlayerId("1");
             var musicId = new MusicId(1);
             var difficulty = new Difficulty(DifficultyType.Another);
             var playAt = new PlayAt(DateTime.UtcNow);

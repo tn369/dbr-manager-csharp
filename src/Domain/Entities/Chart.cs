@@ -9,6 +9,11 @@ namespace Domain.Entities
     public sealed class Chart
     {
         /// <summary>
+        /// チャートID
+        /// </summary>
+        public int Id { get; private set; }
+
+        /// <summary>
         /// 音楽ID
         /// </summary>
         public MusicId MusicId { get; private set; } = null!;
@@ -83,6 +88,7 @@ namespace Domain.Entities
                 throw new ArgumentException("NotesScratch, NotesCharge, and NotesBackspin total cannot exceed NotesTotal.");
             }
 
+            Id = 0;
             MusicId = musicId;
             GameMode = gameMode;
             Difficulty = difficulty;
@@ -111,7 +117,7 @@ namespace Domain.Entities
                 throw new ArgumentException("Battle chart can only be created from a single chart.");
             }
 
-            return new Chart(
+            var battleChart = new Chart(
                 MusicId,
                 new GameMode(GameModeType.Battle),
                 Difficulty,
@@ -122,6 +128,7 @@ namespace Domain.Entities
                 NotesCharge.BattleValue(),
                 NotesBackspin.BattleValue()
             );
+            return battleChart;
         }
     }
 }

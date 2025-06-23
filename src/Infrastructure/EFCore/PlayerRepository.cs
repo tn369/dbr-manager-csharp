@@ -2,7 +2,7 @@
 using Domain.Repositories;
 using Domain.ValueObjects;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.EFCore
 {
     public class PlayerRepository : Repository<Player, PlayerId>, IPlayerRepository
     {

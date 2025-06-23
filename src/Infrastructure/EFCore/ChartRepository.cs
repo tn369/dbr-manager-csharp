@@ -2,9 +2,9 @@
 using Domain.Repositories;
 using Domain.ValueObjects;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.EFCore
 {
-    public class ChartRepository : Repository<Chart, MusicId>, IChartRepository
+    public class ChartRepository : Repository<Chart, int>, IChartRepository
     {
         public ChartRepository(ApplicationDbContext context) : base(context) { }
     }

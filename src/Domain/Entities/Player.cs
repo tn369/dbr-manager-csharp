@@ -8,18 +8,27 @@ namespace Domain.Entities
 
         public IReadOnlyCollection<Player> Rivals => _rivals.AsReadOnly();
 
-        public PlayerId? PlayerId { get; private set; }
-        public IidxId IidxId { get; private set; } = null!;
-        public DJName Name { get; private set; } = null!;
+        public PlayerId Id { get; private set; } = null!;
+        public DJName DJName { get; private set; } = null!;
         public Profile Profile { get; private set; } = null!;
 
-        public Player(IidxId iidxId, DJName name, Profile? profile)
+        public Player(DJName djName, Profile profile)
         {
-            IidxId = iidxId ?? throw new ArgumentNullException(nameof(iidxId));
-            Name = name ?? throw new ArgumentNullException(nameof(name));
-            Profile = profile ?? new Profile(string.Empty);
+            Id = new PlayerId(Guid.NewGuid().ToString());
+            DJName = djName ?? throw new ArgumentNullException(nameof(djName));
+            Profile = profile ?? throw new ArgumentNullException(nameof(profile));
         }
         private Player() { }
+
+        public void ChangeDJName(DJName djName)
+        {
+            DJName = djName ?? throw new ArgumentNullException(nameof(djName));
+        }
+
+        public void ChangeProfile(Profile profile)
+        {
+            Profile = profile ?? throw new ArgumentNullException(nameof(profile));
+        }
 
         public void AddRival(Player rival)
         {
